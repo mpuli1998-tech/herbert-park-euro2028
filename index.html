@@ -1033,84 +1033,6 @@
 
 
     <!-- =========================================================
-         4. SUPPORTER KIT — Your Match. Your Colours.
-         ========================================================= -->
-    <section class="section kit" id="supporter-kit" aria-labelledby="kit-title">
-      <div class="container split split-kit">
-
-        <figure class="split-media kit-photo reveal">
-          <!-- OFFICIAL PHOTOGRAPHY: supporter kit laid out on a Herbert Park bed,
-               waiting for guests on arrival → assets/images/supporter-kit.jpg -->
-          <img src="assets/images/supporter-kit.jpg" alt="EURO 2028 Herbert Park Hotel supporter kit with scarf, cap, water bottle, stadium walking map and match-day essentials in a Dublin hotel room" loading="lazy" />
-          <figcaption class="photo-note">Waiting in your room on arrival.</figcaption>
-        </figure>
-
-          <!-- Progressive disclosure: contents are available but not shown as a long list -->
-          <details class="kit-details kit-details-left">
-            <summary>What's in the Kit (Starter · Enhanced · Premium)</summary>
-            <div class="kit-levels">
-              <p class="kit-level"><strong>Herbert Park Supporter Kit</strong>A Herbert Park supporter scarf in your team colours, a reusable water bottle, rain poncho, Aviva Stadium walking map, Dublin pocket guide, match-day snacks with healthier options, football keychain, commemorative postcard and a shoulder-carry drawstring bag to carry it all.</p>
-              <p class="kit-level"><strong>Enhanced Supporter Kit</strong>Everything in the Herbert Park Supporter Kit, plus a take-home football, team-colour face-paint kit and supporter cap.</p>
-              <p class="kit-level"><strong>Premium Supporter Kit</strong>Everything in the Enhanced Supporter Kit, plus a team-colour supporter T-shirt, matchday sunglasses, mini football pump and needle, and one disposable camera per room.</p>
-            </div>
-            <p class="fine-print fine-print-left">Kit contents are conceptual and may vary.</p>
-          </details>
-
-        <div class="split-text reveal">
-          <p class="eyebrow">EURO 2028 Supporter Experience</p>
-          <h2 id="kit-title" class="display-lg">Celebrate Every Goal<br />in Your Team Colours.</h2>
-          <p class="lead">Make your EURO 2028 hotel stay in Dublin more memorable with the Herbert Park Supporter Kit, prepared in your chosen team colours.</p>
-          <p>Your supporter kit will be waiting in your room at Herbert Park Hotel when you arrive, with practical match-day essentials for the walk to Aviva Stadium and keepsakes from your Dublin stay.</p>
-
-          <!-- Live scarf preview — stripe colours update with the team selector -->
-          <div class="scarf-preview" id="scarfPreview" aria-live="polite">
-            <svg class="scarf" viewBox="0 0 640 120" role="img" aria-labelledby="scarf-title">
-              <title id="scarf-title">Herbert Park supporter scarf in the selected team colours</title>
-              <defs>
-                <pattern id="knit" width="6" height="6" patternUnits="userSpaceOnUse">
-                  <path d="M0 3 L3 0 L6 3" fill="none" stroke="rgba(0,0,0,.07)" stroke-width="1"/>
-                </pattern>
-              </defs>
-              <!-- fringe -->
-              <g class="scarf-fringe">
-                <path d="M20 26 v68 M26 26 v68 M32 26 v68 M38 26 v68 M44 26 v68"/>
-                <path d="M596 26 v68 M602 26 v68 M608 26 v68 M614 26 v68 M620 26 v68"/>
-              </g>
-              <!-- body -->
-              <rect x="44" y="20" width="552" height="80" rx="3" class="scarf-c1"/>
-              <!-- left end stripes -->
-              <rect x="64" y="20" width="18" height="80" class="scarf-c2"/>
-              <rect x="88" y="20" width="10" height="80" class="scarf-c3"/>
-              <rect x="104" y="20" width="18" height="80" class="scarf-c2"/>
-              <!-- right end stripes -->
-              <rect x="518" y="20" width="18" height="80" class="scarf-c2"/>
-              <rect x="542" y="20" width="10" height="80" class="scarf-c3"/>
-              <rect x="558" y="20" width="18" height="80" class="scarf-c2"/>
-              <!-- centre panel -->
-              <rect x="140" y="34" width="360" height="52" rx="2" class="scarf-panel"/>
-              <text x="320" y="66" text-anchor="middle" class="scarf-text" id="scarfText">HERBERT PARK</text>
-              <!-- small woven football motifs -->
-              <g class="scarf-ball"><circle cx="128" cy="60" r="5"/><circle cx="512" cy="60" r="5"/></g>
-              <rect x="44" y="20" width="552" height="80" fill="url(#knit)"/>
-            </svg>
-            <p class="scarf-caption">Shown in <strong id="teamName">Herbert Park</strong> colours</p>
-          </div>
-
-          <!-- Team selector. Teams are defined in TEAMS in script.js -->
-          <div class="team-select">
-            <p class="micro-head" id="team-label">Choose Your Colours</p>
-            <div class="team-scroller" id="teamScroller" role="radiogroup" aria-labelledby="team-label">
-              <!-- Populated by script.js → renderTeams() -->
-            </div>
-            <p class="fine-print fine-print-left">Team colours shown for illustration only. No national team crests or tournament marks are used.</p>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-
-    <!-- =========================================================
          5. ROOMS — Find Your EURO 2028 Stay in Dublin.
          ---------------------------------------------------------
          Room choice is SEPARATE from the package: guests choose
@@ -1233,6 +1155,84 @@
 
 
     <!-- =========================================================
+         4. SUPPORTER KIT — Your Match. Your Colours.
+         ========================================================= -->
+    <section class="section kit" id="supporter-kit" aria-labelledby="kit-title">
+      <div class="container split split-kit">
+
+        <figure class="split-media kit-photo reveal">
+          <!-- OFFICIAL PHOTOGRAPHY: supporter kit laid out on a Herbert Park bed,
+               waiting for guests on arrival → assets/images/supporter-kit.jpg -->
+          <img src="assets/images/supporter-kit.jpg" alt="EURO 2028 Herbert Park Hotel supporter kit with scarf, cap, water bottle, stadium walking map and match-day essentials in a Dublin hotel room" loading="lazy" />
+          <figcaption class="photo-note">Waiting in your room on arrival.</figcaption>
+        </figure>
+
+          <!-- Progressive disclosure: contents are available but not shown as a long list -->
+          <details class="kit-details kit-details-left">
+            <summary>What's in the Kit (Starter · Enhanced · Premium)</summary>
+            <div class="kit-levels">
+              <p class="kit-level"><strong>Herbert Park Supporter Kit</strong>A Herbert Park supporter scarf in your team colours, a reusable water bottle, rain poncho, Aviva Stadium walking map, Dublin pocket guide, match-day snacks with healthier options, football keychain, commemorative postcard and a shoulder-carry drawstring bag to carry it all.</p>
+              <p class="kit-level"><strong>Enhanced Supporter Kit</strong>Everything in the Herbert Park Supporter Kit, plus a take-home football, team-colour face-paint kit and supporter cap.</p>
+              <p class="kit-level"><strong>Premium Supporter Kit</strong>Everything in the Enhanced Supporter Kit, plus a team-colour supporter T-shirt, matchday sunglasses, mini football pump and needle, and one disposable camera per room.</p>
+            </div>
+            <p class="fine-print fine-print-left">Kit contents are conceptual and may vary.</p>
+          </details>
+
+        <div class="split-text reveal">
+          <p class="eyebrow">EURO 2028 Supporter Experience</p>
+          <h2 id="kit-title" class="display-lg">Celebrate Every Goal<br />in Your Team Colours.</h2>
+          <p class="lead">Make your EURO 2028 hotel stay in Dublin more memorable with the Herbert Park Supporter Kit, prepared in your chosen team colours.</p>
+          <p>Your supporter kit will be waiting in your room at Herbert Park Hotel when you arrive, with practical match-day essentials for the walk to Aviva Stadium and keepsakes from your Dublin stay.</p>
+
+          <!-- Live scarf preview — stripe colours update with the team selector -->
+          <div class="scarf-preview" id="scarfPreview" aria-live="polite">
+            <svg class="scarf" viewBox="0 0 640 120" role="img" aria-labelledby="scarf-title">
+              <title id="scarf-title">Herbert Park supporter scarf in the selected team colours</title>
+              <defs>
+                <pattern id="knit" width="6" height="6" patternUnits="userSpaceOnUse">
+                  <path d="M0 3 L3 0 L6 3" fill="none" stroke="rgba(0,0,0,.07)" stroke-width="1"/>
+                </pattern>
+              </defs>
+              <!-- fringe -->
+              <g class="scarf-fringe">
+                <path d="M20 26 v68 M26 26 v68 M32 26 v68 M38 26 v68 M44 26 v68"/>
+                <path d="M596 26 v68 M602 26 v68 M608 26 v68 M614 26 v68 M620 26 v68"/>
+              </g>
+              <!-- body -->
+              <rect x="44" y="20" width="552" height="80" rx="3" class="scarf-c1"/>
+              <!-- left end stripes -->
+              <rect x="64" y="20" width="18" height="80" class="scarf-c2"/>
+              <rect x="88" y="20" width="10" height="80" class="scarf-c3"/>
+              <rect x="104" y="20" width="18" height="80" class="scarf-c2"/>
+              <!-- right end stripes -->
+              <rect x="518" y="20" width="18" height="80" class="scarf-c2"/>
+              <rect x="542" y="20" width="10" height="80" class="scarf-c3"/>
+              <rect x="558" y="20" width="18" height="80" class="scarf-c2"/>
+              <!-- centre panel -->
+              <rect x="140" y="34" width="360" height="52" rx="2" class="scarf-panel"/>
+              <text x="320" y="66" text-anchor="middle" class="scarf-text" id="scarfText">HERBERT PARK</text>
+              <!-- small woven football motifs -->
+              <g class="scarf-ball"><circle cx="128" cy="60" r="5"/><circle cx="512" cy="60" r="5"/></g>
+              <rect x="44" y="20" width="552" height="80" fill="url(#knit)"/>
+            </svg>
+            <p class="scarf-caption">Shown in <strong id="teamName">Herbert Park</strong> colours</p>
+          </div>
+
+          <!-- Team selector. Teams are defined in TEAMS in script.js -->
+          <div class="team-select">
+            <p class="micro-head" id="team-label">Choose Your Colours</p>
+            <div class="team-scroller" id="teamScroller" role="radiogroup" aria-labelledby="team-label">
+              <!-- Populated by script.js → renderTeams() -->
+            </div>
+            <p class="fine-print fine-print-left">Team colours shown for illustration only. No national team crests or tournament marks are used.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =========================================================
          6. EXPERIENCE DUBLIN — Come for the Match. Stay for Dublin.
          ========================================================= -->
     <section class="section dublin" id="dublin" aria-labelledby="dublin-title">
@@ -1262,49 +1262,6 @@
             </figure>
           </div>
         </div>
-      </div>
-    </section>
-
-
-    <!-- =========================================================
-         7. SOCIAL / UGC — Celebrate with us.
-         ========================================================= -->
-    <section class="section social" id="social" aria-labelledby="social-title">
-      <div class="container">
-        <header class="section-head section-head-center reveal">
-          <p class="eyebrow">EURO 2028 in Dublin · Your Match-Day Moments</p>
-          <h2 id="social-title" class="display-lg">Celebrate with us.</h2>
-          <p class="lead">Share your EURO 2028 stay in Dublin, your walk to Aviva Stadium and the moments you experience at Herbert Park with <strong class="hashtag">#CelebrateEveryGoal</strong>.</p>
-        </header>
-
-        <!-- Replace with curated guest photography (with permission) or an Instagram embed -->
-        <div class="social-grid">
-          <figure class="social-tile reveal">
-            <img src="assets/images/social-02.jpg" alt="Herbert Park Hotel supporter kit in a guest room" loading="lazy" />
-            <figcaption>Open your kit</figcaption>
-          </figure>
-          <figure class="social-tile social-tile-offset reveal">
-            <img src="assets/images/social-01.jpg" alt="Football supporters in team scarves celebrating in Dublin" loading="lazy" />
-            <figcaption>Wear your colours</figcaption>
-          </figure>
-          <figure class="social-tile reveal">
-            <img src="assets/images/social-03.jpg" alt="Floodlit stadium atmosphere on a Dublin match night" loading="lazy" />
-            <figcaption>Feel the match</figcaption>
-          </figure>
-          <figure class="social-tile social-tile-offset reveal">
-            <img src="assets/images/dublin.jpg" alt="Exploring Dublin city between matches" loading="lazy" />
-            <figcaption>Discover Dublin</figcaption>
-          </figure>
-        </div>
-
-        <p class="social-tags reveal">
-          <span>#CelebrateEveryGoal</span>
-          <span class="dot" aria-hidden="true"></span>
-          <span>#HerbertParkMatchDay</span>
-          <span class="dot" aria-hidden="true"></span>
-          <!-- Replace with the hotel's official Instagram handle -->
-          <a href="#" data-placeholder-link>@herbertparkhotel <em>(placeholder)</em></a>
-        </p>
       </div>
     </section>
 
@@ -1456,6 +1413,49 @@
           <p class="fine-print fine-print-left">Travel options and package inclusions subject to confirmation. Match tickets are not included.</p>
         </div>
 
+      </div>
+    </section>
+
+
+    <!-- =========================================================
+         7. SOCIAL / UGC — Celebrate with us.
+         ========================================================= -->
+    <section class="section social" id="social" aria-labelledby="social-title">
+      <div class="container">
+        <header class="section-head section-head-center reveal">
+          <p class="eyebrow">EURO 2028 in Dublin · Your Match-Day Moments</p>
+          <h2 id="social-title" class="display-lg">Celebrate with us.</h2>
+          <p class="lead">Share your EURO 2028 stay in Dublin, your walk to Aviva Stadium and the moments you experience at Herbert Park with <strong class="hashtag">#CelebrateEveryGoal</strong>.</p>
+        </header>
+
+        <!-- Replace with curated guest photography (with permission) or an Instagram embed -->
+        <div class="social-grid">
+          <figure class="social-tile reveal">
+            <img src="assets/images/social-02.jpg" alt="Herbert Park Hotel supporter kit in a guest room" loading="lazy" />
+            <figcaption>Open your kit</figcaption>
+          </figure>
+          <figure class="social-tile social-tile-offset reveal">
+            <img src="assets/images/social-01.jpg" alt="Football supporters in team scarves celebrating in Dublin" loading="lazy" />
+            <figcaption>Wear your colours</figcaption>
+          </figure>
+          <figure class="social-tile reveal">
+            <img src="assets/images/social-03.jpg" alt="Floodlit stadium atmosphere on a Dublin match night" loading="lazy" />
+            <figcaption>Feel the match</figcaption>
+          </figure>
+          <figure class="social-tile social-tile-offset reveal">
+            <img src="assets/images/dublin.jpg" alt="Exploring Dublin city between matches" loading="lazy" />
+            <figcaption>Discover Dublin</figcaption>
+          </figure>
+        </div>
+
+        <p class="social-tags reveal">
+          <span>#CelebrateEveryGoal</span>
+          <span class="dot" aria-hidden="true"></span>
+          <span>#HerbertParkMatchDay</span>
+          <span class="dot" aria-hidden="true"></span>
+          <!-- Replace with the hotel's official Instagram handle -->
+          <a href="#" data-placeholder-link>@herbertparkhotel <em>(placeholder)</em></a>
+        </p>
       </div>
     </section>
 
