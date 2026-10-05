@@ -1,0 +1,1943 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EURO 2028 Hotel Dublin | Near Aviva Stadium | Herbert Park Hotel</title>
+  <meta name="description" content="Stay at Herbert Park Hotel &amp; Park Residence for EURO 2028 in Dublin, within easy walking distance of Aviva Stadium. Explore EURO 2028 hotel packages, rooms, supporter experiences and Dublin stays in Ballsbridge, Dublin 4." />
+
+  <!-- Social sharing (Open Graph / Twitter).
+       When the page goes live, change og:image to an absolute URL and add
+       <link rel="canonical"> and og:url with the final live address. -->
+  <meta property="og:title" content="EURO 2028 Hotel Dublin | Herbert Park Hotel" />
+  <meta property="og:description" content="Stay near Aviva Stadium for EURO 2028 at Herbert Park Hotel &amp; Park Residence in Ballsbridge, Dublin 4." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/images/hero-poster.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="EURO 2028 Hotel Dublin | Herbert Park Hotel" />
+  <meta name="twitter:description" content="Stay near Aviva Stadium for EURO 2028 in Dublin at Herbert Park Hotel &amp; Park Residence." />
+
+  <!-- Fonts: Playfair Display (display serif) + DM Sans (UI / body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- =========================================================
+       ROOM / ACCOMMODATION SECTION STYLES (#rooms)
+       Two-panel chooser: Hotel Rooms (navy) + Park Residence (coral).
+       Kept here, next to the page, so it works with any version of
+       styles.css. Scoped to #rooms only; colours fall back to the
+       Herbert Park palette if the CSS variables are missing.
+       ========================================================= -->
+  <style id="rooms-section-styles">
+    #rooms.section {
+      background: var(--cream, #f6f1e8);
+      padding-block: clamp(2.75rem, 2rem + 2.5vw, 4rem);
+    }
+
+    /* Heading (one line on desktop) + short description */
+    #rooms .rooms-head { margin-bottom: clamp(1.5rem, 1rem + 1vw, 2rem); }
+    #rooms .rooms-head .eyebrow { margin-bottom: 0.9rem; }
+    #rooms .rooms-title {
+      margin: 0 0 0.6rem;
+      font-family: var(--font-display, "Playfair Display", Georgia, serif);
+      font-weight: 400;
+      font-size: clamp(1.9rem, 1.2rem + 2.2vw, 3rem);
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      color: var(--navy, #173149);
+    }
+    @media (min-width: 900px) { #rooms .rooms-title { white-space: nowrap; } }
+    #rooms .rooms-intro {
+      margin: 0;
+      max-width: 44em;
+      font-size: 1.05rem;
+      line-height: 1.6;
+      color: var(--navy, #173149);
+    }
+
+    /* Two panels: 60% hotel / 40% residence */
+    #rooms .rooms-chooser {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: clamp(0.75rem, 0.5rem + 0.8vw, 1.25rem);
+      align-items: stretch;
+    }
+    #rooms .rooms-panel {
+      padding: clamp(1.25rem, 1rem + 1vw, 1.75rem);
+      color: #fffdf9;
+    }
+    #rooms .rooms-panel-hotel { background: var(--navy, #173149); }
+    /* coral-deep keeps white text readable (AA contrast) while staying in the Herbert Park coral family */
+    #rooms .rooms-panel-residence { background: var(--coral-deep, #c9413b); }
+
+    #rooms .rooms-panel-head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 0.25rem 1rem;
+      padding-bottom: 0.75rem;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid rgba(255, 253, 249, 0.22);
+    }
+    #rooms .rooms-panel-title {
+      margin: 0;
+      font-family: var(--font-body, "DM Sans", Arial, sans-serif);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: #fffdf9;
+    }
+    #rooms .rooms-panel-note {
+      margin: 0;
+      font-size: 0.8rem;
+      color: rgba(255, 253, 249, 0.78);
+    }
+
+    /* Tiles: hotel 3 × 2, residence 2 × 2 */
+    #rooms .rooms-tiles {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 1rem 0.9rem;
+    }
+    #rooms .rooms-panel-hotel .rooms-tiles { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    #rooms .rooms-panel-residence .rooms-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    #rooms .rooms-tiles > li { margin: 0; min-width: 0; }
+
+    #rooms .room-tile {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      text-decoration: none;
+      color: #fffdf9;
+    }
+    #rooms .room-tile-img {
+      display: block;
+      overflow: hidden;
+      aspect-ratio: 3 / 2;              /* small, consistent landscape thumbnail */
+      margin-bottom: 0.55rem;
+      background: rgba(255, 253, 249, 0.12);
+    }
+    #rooms .room-tile-img img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      max-width: 100%;
+      object-fit: cover;
+      transition: transform 1.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+    }
+    #rooms .room-tile:hover .room-tile-img img,
+    #rooms .room-tile:focus-visible .room-tile-img img { transform: scale(1.05); }
+    #rooms .room-tile-name {
+      flex: 1;
+      margin-bottom: 0.35rem;
+      font-family: var(--font-display, "Playfair Display", Georgia, serif);
+      font-size: 0.98rem;
+      line-height: 1.28;
+      color: #fffdf9;
+    }
+    #rooms .room-tile-cta {
+      align-self: flex-start;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding-bottom: 0.2rem;
+      font-family: var(--font-body, "DM Sans", Arial, sans-serif);
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255, 253, 249, 0.85);
+      border-bottom: 1px solid rgba(255, 253, 249, 0.3);
+      transition: border-color 400ms ease, gap 400ms ease, color 400ms ease;
+    }
+    #rooms .room-tile-cta::after { content: "→"; font-size: 0.85rem; letter-spacing: 0; }
+    #rooms .rooms-panel-hotel .room-tile-cta::after { color: var(--coral, #e9544d); }
+    #rooms .room-tile:hover .room-tile-cta { color: #fffdf9; border-color: #fffdf9; gap: 0.7rem; }
+    #rooms .room-tile:focus-visible { outline: 2px solid #fffdf9; outline-offset: 4px; }
+
+    /* One booking CTA under both panels */
+    #rooms .rooms-book {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem 1.5rem;
+      margin-top: clamp(1.5rem, 1rem + 1vw, 2rem);
+      text-align: center;
+    }
+    #rooms .rooms-book-text {
+      margin: 0;
+      font-family: var(--font-display, "Playfair Display", Georgia, serif);
+      font-size: 1.25rem;
+      color: var(--navy, #173149);
+    }
+    #rooms .rooms-book .btn::after { content: "→"; margin-left: 0.6rem; font-size: 1rem; letter-spacing: 0; }
+
+    /* Tablet: stack the panels (residence tiles go 4 across); Mobile: tiles 2 across */
+    @media (max-width: 860px) {
+      #rooms .rooms-chooser { grid-template-columns: 1fr; }
+      #rooms .rooms-panel-residence .rooms-tiles { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    }
+    @media (max-width: 599px) {
+      #rooms .rooms-panel-hotel .rooms-tiles,
+      #rooms .rooms-panel-residence .rooms-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      #rooms .rooms-tiles { gap: 0.9rem 0.7rem; }
+      #rooms .rooms-book { flex-direction: column; }
+      #rooms .rooms-book .btn { width: 100%; }
+    }
+  </style>
+  <!-- =========================================================
+       BOOKING STEP STYLES (#bookingDialog)
+       Intermediate "Choose your accommodation" step shown before the
+       official Herbert Park booking engine. Prefixed .bk-; colours
+       fall back to the Herbert Park palette if variables are missing.
+       ========================================================= -->
+  <style id="booking-step-styles">
+    .bk-dialog {
+      width: min(1080px, calc(100vw - 2rem));
+      max-height: calc(100vh - 2rem);
+      max-height: calc(100dvh - 2rem);
+      padding: 0;
+      border: 0;
+      background: var(--paper, #fffdf9);
+      color: var(--ink, #1d2a36);
+      font-family: var(--font-body, "DM Sans", Arial, sans-serif);
+      box-shadow: 0 30px 80px -30px rgba(13, 35, 54, 0.55);
+      overflow: hidden;
+    }
+    .bk-dialog[open] { display: flex; flex-direction: column; animation: bk-in 360ms cubic-bezier(0.22, 0.61, 0.36, 1); }
+    .bk-dialog::backdrop { background: rgba(13, 35, 54, 0.62); }
+    .bk-dialog [hidden] { display: none !important; }
+    .bk-form { display: flex; flex-direction: column; flex: 1 1 auto; min-height: 0; margin: 0; }
+    .bk-head, .bk-foot { flex: none; }
+    @keyframes bk-in { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+
+    .bk-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1.4rem clamp(1.25rem, 1rem + 1.5vw, 2rem) 1.1rem;
+      border-bottom: 1px solid var(--line, rgba(23, 49, 73, 0.14));
+    }
+    .bk-eyebrow {
+      margin: 0 0 0.35rem;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--coral-deep, #c9413b);
+    }
+    .bk-title {
+      margin: 0;
+      font-family: var(--font-display, "Playfair Display", Georgia, serif);
+      font-weight: 400;
+      font-size: clamp(1.5rem, 1.2rem + 1vw, 2rem);
+      line-height: 1.15;
+      color: var(--navy, #173149);
+    }
+    .bk-close {
+      flex: none;
+      width: 40px;
+      height: 40px;
+      border: 1px solid var(--line, rgba(23, 49, 73, 0.14));
+      border-radius: 50%;
+      background: transparent;
+      color: var(--navy, #173149);
+      font-size: 1.3rem;
+      line-height: 1;
+      cursor: pointer;
+    }
+    .bk-close:hover { border-color: var(--navy, #173149); }
+
+    .bk-body {
+      flex: 1 1 auto;
+      min-height: 0;
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+      overflow-y: auto;
+      overscroll-behavior: contain;
+    }
+    .bk-col { padding: 1.25rem clamp(1.25rem, 1rem + 1.5vw, 2rem) 1.5rem; min-width: 0; }
+    .bk-col-rooms { background: var(--cream, #f6f1e8); border-left: 1px solid var(--line, rgba(23, 49, 73, 0.14)); }
+
+    .bk-step { margin: 0 0 1.25rem; padding: 0; border: 0; min-width: 0; }
+    .bk-step:last-child { margin-bottom: 0; }
+    .bk-step-title {
+      display: flex;
+      align-items: baseline;
+      gap: 0.6rem;
+      margin: 0 0 0.65rem;
+      padding: 0;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--navy, #173149);
+    }
+    .bk-step-num { color: var(--coral-deep, #c9413b); }
+    .bk-step-hint { margin: -0.3rem 0 0.6rem; font-size: 0.8rem; color: var(--muted, #5d6874); }
+
+    /* Step 1 — category toggle */
+    .bk-types { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; }
+    .bk-type { position: relative; display: block; cursor: pointer; }
+    .bk-type input { position: absolute; opacity: 0; pointer-events: none; }
+    .bk-type span {
+      display: block;
+      padding: 0.85rem 1rem;
+      border: 1px solid var(--line, rgba(23, 49, 73, 0.14));
+      background: var(--paper, #fffdf9);
+      transition: background-color 300ms ease, color 300ms ease, border-color 300ms ease;
+    }
+    .bk-type strong {
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+    .bk-type small { display: block; margin-top: 0.2rem; font-size: 0.78rem; opacity: 0.8; }
+    .bk-type-hotel span { color: var(--navy, #173149); border-top: 3px solid var(--navy, #173149); }
+    .bk-type-residence span { color: var(--coral-deep, #c9413b); border-top: 3px solid var(--coral-deep, #c9413b); }
+    .bk-type-hotel input:checked + span { background: var(--navy, #173149); color: #fffdf9; border-color: var(--navy, #173149); }
+    .bk-type-residence input:checked + span { background: var(--coral-deep, #c9413b); color: #fffdf9; border-color: var(--coral-deep, #c9413b); }
+    .bk-type input:focus-visible + span { outline: 2px solid var(--coral, #e9544d); outline-offset: 2px; }
+
+    /* Step 3 — stay details */
+    .bk-fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.7rem 0.8rem; }
+    .bk-fields-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 0.7rem; }
+    .bk-field { display: flex; flex-direction: column; gap: 0.3rem; min-width: 0; }
+    .bk-field span {
+      font-size: 0.64rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted, #5d6874);
+    }
+    .bk-field input,
+    .bk-field select {
+      width: 100%;
+      min-height: 44px;
+      padding: 0.55rem 0.7rem;
+      border: 1px solid var(--line, rgba(23, 49, 73, 0.2));
+      border-radius: 0;
+      background: var(--paper, #fffdf9);
+      color: var(--navy, #173149);
+      font: inherit;
+      font-size: 0.92rem;
+    }
+    .bk-field input:focus-visible,
+    .bk-field select:focus-visible { outline: 2px solid var(--coral, #e9544d); outline-offset: 1px; }
+    .bk-nights { margin: 0.55rem 0 0; font-size: 0.8rem; color: var(--muted, #5d6874); min-height: 1.2em; }
+    .bk-nights strong { color: var(--navy, #173149); font-weight: 600; }
+
+    /* Step 4 — package pills */
+    .bk-packages { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.5rem; }
+    .bk-pkg { position: relative; display: block; cursor: pointer; }
+    .bk-pkg input { position: absolute; opacity: 0; pointer-events: none; }
+    .bk-pkg span {
+      display: block;
+      height: 100%;
+      padding: 0.6rem 0.8rem;
+      border: 1px solid var(--line, rgba(23, 49, 73, 0.14));
+      background: var(--paper, #fffdf9);
+      transition: border-color 300ms ease, background-color 300ms ease;
+    }
+    .bk-pkg small {
+      display: block;
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--coral-deep, #c9413b);
+    }
+    .bk-pkg strong {
+      display: block;
+      font-family: var(--font-display, "Playfair Display", Georgia, serif);
+      font-weight: 400;
+      font-size: 1rem;
+      color: var(--navy, #173149);
+    }
+    .bk-pkg input:checked + span { border-color: var(--navy, #173149); box-shadow: inset 0 0 0 1px var(--navy, #173149); background: #fff; }
+    .bk-pkg input:checked + span::after { content: "✓"; position: absolute; top: 0.55rem; right: 0.7rem; color: var(--coral-deep, #c9413b); font-size: 0.85rem; }
+    .bk-pkg input:focus-visible + span { outline: 2px solid var(--coral, #e9544d); outline-offset: 2px; }
+    .bk-pkg-later { grid-column: 1 / -1; }
+    .bk-pkg-later span { padding-block: 0.45rem; }
+    .bk-pkg-later strong { font-family: var(--font-body, "DM Sans", Arial, sans-serif); font-size: 0.8rem; color: var(--muted, #5d6874); }
+
+    /* Step 2 — room chooser (right column) */
+    .bk-rooms-empty { display: grid; gap: 0.6rem; }
+    .bk-rooms-empty p { margin: 0 0 0.25rem; font-size: 0.9rem; color: var(--muted, #5d6874); }
+    .bk-cat-btn {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      padding: 1rem 1.1rem;
+      border: 0;
+      color: #fffdf9;
+      text-align: left;
+      font: inherit;
+      cursor: pointer;
+    }
+    .bk-cat-btn strong { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; }
+    .bk-cat-btn small { font-size: 0.8rem; opacity: 0.85; }
+    .bk-cat-btn::after { content: "→"; margin-left: 1rem; }
+    .bk-cat-hotel { background: var(--navy, #173149); }
+    .bk-cat-residence { background: var(--coral-deep, #c9413b); }
+    .bk-cat-btn:focus-visible { outline: 2px solid var(--coral, #e9544d); outline-offset: 2px; }
+
+    .bk-room-grid {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.85rem 0.7rem;
+    }
+    .bk-room-grid > li { position: relative; display: flex; flex-direction: column; min-width: 0; }
+    .bk-room { position: relative; display: block; cursor: pointer; }
+    .bk-room input { position: absolute; opacity: 0; pointer-events: none; }
+    .bk-room-img {
+      display: block;
+      aspect-ratio: 3 / 2;
+      overflow: hidden;
+      background: var(--cream-deep, #ece4d5);
+      outline: 2px solid transparent;
+      outline-offset: 2px;
+      transition: outline-color 250ms ease;
+    }
+    .bk-room-img img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    .bk-room-name {
+      display: block;
+      margin-top: 0.4rem;
+      font-family: var(--font-display, "Playfair Display", Georgia, serif);
+      font-size: 0.9rem;
+      line-height: 1.25;
+      color: var(--navy, #173149);
+    }
+    .bk-room input:checked + .bk-room-img { outline-color: var(--navy, #173149); }
+    .bk-room-grid[data-type="residence"] .bk-room input:checked + .bk-room-img { outline-color: var(--coral-deep, #c9413b); }
+    .bk-room input:checked ~ .bk-room-name::before { content: "✓ "; color: var(--coral-deep, #c9413b); }
+    .bk-room input:focus-visible + .bk-room-img { outline-color: var(--coral, #e9544d); }
+    .bk-room-tag {
+      position: absolute;
+      top: 0.35rem;
+      left: 0.35rem;
+      padding: 0.15rem 0.4rem;
+      background: var(--paper, #fffdf9);
+      color: var(--navy, #173149);
+      font-size: 0.56rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+    .bk-room-link {
+      align-self: flex-start;
+      margin-top: 0.3rem;
+      font-size: 0.58rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--muted, #5d6874);
+      border-bottom: 1px solid var(--line, rgba(23, 49, 73, 0.14));
+    }
+    .bk-room-link::after { content: " →"; color: var(--coral, #e9544d); }
+    .bk-room-link:hover { color: var(--navy, #173149); }
+    .bk-switch {
+      margin-top: 0.9rem;
+      padding: 0;
+      border: 0;
+      background: none;
+      font: inherit;
+      font-size: 0.75rem;
+      color: var(--navy, #173149);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      cursor: pointer;
+    }
+
+    /* Summary + final CTA */
+    .bk-foot {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem 1.5rem;
+      padding: 1rem clamp(1.25rem, 1rem + 1.5vw, 2rem);
+      border-top: 1px solid var(--line, rgba(23, 49, 73, 0.14));
+      background: var(--paper, #fffdf9);
+    }
+    .bk-summary { margin: 0; min-width: 0; flex: 1 1 22rem; font-size: 0.85rem; line-height: 1.5; color: var(--navy, #173149); }
+    .bk-summary strong { font-weight: 600; }
+    .bk-note { display: block; margin-top: 0.2rem; font-size: 0.74rem; color: var(--muted, #5d6874); }
+    .bk-cta { flex: none; }
+    .bk-cta::after { content: "→"; margin-left: 0.6rem; font-size: 1rem; letter-spacing: 0; }
+
+    @media (max-width: 820px) {
+      .bk-dialog { width: 100vw; max-width: 100vw; height: 100dvh; max-height: 100dvh; margin: 0; }
+      .bk-body { grid-template-columns: 1fr; }               /* details first, rooms below */
+      .bk-col-rooms { border-left: 0; border-top: 1px solid var(--line, rgba(23, 49, 73, 0.14)); }
+      .bk-room-grid,
+      .bk-room-grid[data-type="residence"] { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .bk-cta { width: 100%; }
+    }
+    @media (max-width: 420px) {
+      .bk-fields-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.5rem; }
+      .bk-packages { grid-template-columns: 1fr 1fr; }
+    }
+    @media (prefers-reduced-motion: reduce) { .bk-dialog[open] { animation: none; } }
+  </style>
+  <!-- =========================================================
+       COMPACT REVISION (spacing / heading sizes / line breaks only)
+       Scoped overrides loaded after styles.css and the section styles,
+       so styles.css stays untouched. Desktop-first: most rules apply
+       from 961px up; phones keep their existing behaviour.
+       ========================================================= -->
+  <style id="compact-revision">
+    /* 1. Hero scroll cue — a little more noticeable (all sizes) */
+    .hero .scroll-cue {
+      color: rgba(255, 255, 255, 0.95);
+      font-weight: 600;
+      letter-spacing: 0.32em;
+      text-shadow: 0 1px 10px rgba(13, 35, 54, 0.45);
+      animation: hp-cue-nudge 2.4s ease-in-out infinite;
+    }
+    .hero .scroll-cue i {
+      width: 1.5px;
+      height: 52px;
+      background: linear-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.15));
+    }
+    @keyframes hp-cue-nudge {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50%      { transform: translateX(-50%) translateY(5px); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .hero .scroll-cue, .hero .scroll-cue i { animation: none; }
+    }
+
+    /* 4. Supporter kit — "What's in the kit" sits under the image */
+    #supporter-kit .split-kit {
+      grid-template-areas: "kit-img kit-text" "kit-more kit-text";
+      grid-template-rows: auto 1fr;
+      row-gap: 0;
+    }
+    #supporter-kit .kit-photo { grid-area: kit-img; }
+    #supporter-kit .split-text { grid-area: kit-text; }
+    #supporter-kit .kit-details-left { grid-area: kit-more; align-self: start; margin-top: 1.25rem; }
+    @media (max-width: 960px) {
+      /* phones/tablets: back to the normal stacked order (image, copy, kit list) */
+      #supporter-kit .split-kit { grid-template-areas: "kit-img" "kit-text" "kit-more"; grid-template-rows: auto; }
+      #supporter-kit .kit-details-left { margin-top: 0; }
+    }
+
+    @media (min-width: 961px) {
+      /* Global rhythm: ~25% less padding between sections */
+      #location.section,
+      #packages.section,
+      #supporter-kit.section,
+      #dublin.section,
+      #day-trips.section,
+      #match-travel.section,
+      #faq.section { padding-block: clamp(3rem, 1.6rem + 3.2vw, 4.5rem); }
+      #social.section { padding-block: clamp(2.75rem, 1.5rem + 2.6vw, 4rem); }
+
+      /* 2. Location — "Stay Near Aviva Stadium" on one line, "for EURO 2028." below */
+      #location-title {
+        font-size: clamp(2.25rem, 0.75rem + 2.4vw, 2.6rem);
+        margin-bottom: 1.25rem;
+      }
+      #location .split-text .eyebrow { margin-bottom: 1rem; }
+      #location .walk-steps { margin: 1.5rem 0 2rem; }
+
+      /* 3. Packages intro — one line where it fits, otherwise two balanced lines */
+      #packages .section-head { max-width: none; margin-bottom: clamp(1.5rem, 1rem + 1vw, 2rem); }
+      #packages .section-head .eyebrow { margin-bottom: 1rem; }
+      #packages-title {
+        font-size: clamp(2.2rem, 0.9rem + 2.9vw, 3.1rem);
+        text-wrap: balance;
+        margin-bottom: 0.9rem;
+      }
+      #packages .section-head .lead {
+        max-width: none;
+        font-size: clamp(1rem, 0.85rem + 0.4vw, 1.12rem);
+        margin-bottom: 0.5rem;
+      }
+      #packages .package-legend { margin-top: 0; }
+      #packages .package-rooms-callout { margin-top: clamp(2rem, 1.5rem + 1vw, 2.75rem); }
+      #packages .fine-print { margin-top: 2rem; }
+
+      /* 4. Supporter kit — slightly tighter copy column */
+      #supporter-kit .split-text .eyebrow { margin-bottom: 1rem; }
+      #supporter-kit #kit-title { margin-bottom: 1.25rem; }
+      #supporter-kit .scarf-preview { margin: 1.5rem 0; }
+      #supporter-kit .team-select { margin-bottom: 0; }
+
+      /* 6. Explore Dublin — smaller display heading, copy closer to images */
+      #dublin .dublin-intro { margin-bottom: clamp(1.75rem, 1.25rem + 1vw, 2.5rem); }
+      #dublin .dublin-intro .eyebrow { margin-bottom: 0.9rem; }
+      #dublin-title {
+        font-size: clamp(2.4rem, 1.2rem + 2.6vw, 3.6rem);
+        margin-bottom: 1rem;
+      }
+      #dublin .dublin-intro .lead { margin-bottom: 0.6rem; }
+
+      /* 7. Celebrate with us — medium heading, tighter social block */
+      #social .section-head { margin-bottom: clamp(1.5rem, 1rem + 1vw, 2.25rem); }
+      #social .section-head .eyebrow { margin-bottom: 0.8rem; }
+      #social-title {
+        font-size: clamp(1.75rem, 1.1rem + 1.3vw, 2.35rem);
+        margin-bottom: 0.75rem;
+      }
+      #social .social-tile-offset { margin-top: clamp(1.25rem, 0.75rem + 1.5vw, 2.25rem); }
+      #social .social-tags { margin-top: clamp(1.5rem, 1rem + 1vw, 2.25rem); }
+
+      /* 8. Stay longer / Ireland — shorter, still balanced with the image */
+      #day-trips .split { gap: clamp(2.5rem, 1rem + 4vw, 5.5rem); }
+      #day-trips .split-text .eyebrow { margin-bottom: 1rem; }
+      #daytrips-title {
+        font-size: clamp(2rem, 1rem + 2.1vw, 2.9rem);
+        margin-bottom: 1rem;
+      }
+      #day-trips .lead { margin-bottom: 0.9rem; }
+      #day-trips .split-text > p:not(.eyebrow):not(.lead):not(.fine-print) { margin-bottom: 1.25rem; }
+      #day-trips .trip-list { margin: 0.5rem 0 1.75rem; }
+      #day-trips .trip-list li { padding: 0.75rem 0; }
+      #day-trips .fine-print-light { margin-top: 1rem; }
+
+      /* 9. Follow your team — one continuous, compact story */
+      #match-travel .follow-head { margin-bottom: clamp(1.5rem, 1rem + 1vw, 2.25rem); gap: clamp(2rem, 1rem + 3vw, 4.5rem); }
+      #match-travel .follow-head .eyebrow { margin-bottom: 0.9rem; }
+      #follow-title { font-size: clamp(2rem, 1rem + 2.1vw, 2.9rem); }
+      #match-travel .follow-card { padding: clamp(1.25rem, 1rem + 0.8vw, 1.75rem); }
+      #match-travel .follow-card-to { padding: clamp(1.5rem, 1.1rem + 1vw, 2.25rem); }
+      #match-travel .follow-card-label { margin-bottom: 0.9rem; }
+      #match-travel .follow-day { font-size: clamp(2.25rem, 1.8rem + 1vw, 2.75rem); }
+      #match-travel .follow-card-to .follow-day { font-size: clamp(2.75rem, 2.1rem + 1.5vw, 3.5rem); }
+      #match-travel .follow-city { margin-bottom: 0.6rem; }
+      #match-travel .follow-card-stay { margin-top: 1rem; padding-top: 0.8rem; }
+      #match-travel .follow-between { margin-top: clamp(1.5rem, 1rem + 1vw, 2rem); padding-top: clamp(1.25rem, 1rem + 0.6vw, 1.6rem); }
+      #match-travel .follow-gap { margin-bottom: clamp(1rem, 0.75rem + 0.6vw, 1.4rem); }
+      #match-travel .follow-benefits svg { margin-bottom: 0.6rem; }
+      #match-travel .follow-cta { margin-top: clamp(1.5rem, 1rem + 1vw, 2rem); }
+
+      /* 10. FAQ — follows the compact rhythm */
+      #faq .faq-item { padding-block: clamp(1.1rem, 0.9rem + 0.6vw, 1.6rem); }
+    }
+
+    /* 2. Location heading: keep the first line whole on laptop/desktop */
+    @media (min-width: 1101px) {
+      #location-title { white-space: nowrap; }
+    }
+  </style>
+  <!-- =========================================================
+       REFINEMENT R2 — copy/spacing pass (location, packages, kit,
+       Dublin, social, match travel). Scoped overrides; styles.css
+       is untouched. Most rules are desktop-first (≥961px).
+       ========================================================= -->
+  <style id="refinement-r2">
+    /* Packages: "The More You Experience" as the reward line */
+    #packages-title em {
+      font-style: italic;
+      color: var(--coral, #e9544d);
+    }
+
+    /* Match travel — journey options in the connector (all sizes) */
+    #match-travel .follow-connector { gap: 0.55rem; }
+    #match-travel .follow-modes {
+      list-style: none;
+      margin: 0.35rem 0 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.3rem;
+      text-align: center;
+    }
+    #match-travel .follow-mode {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      font-size: 0.78rem;
+      line-height: 1.35;
+      color: var(--muted, #5d6874);
+    }
+    #match-travel .follow-mode-icon {
+      flex: none;
+      width: 26px;
+      height: 17px;
+      fill: none;
+      stroke: var(--navy, #173149);
+      stroke-width: 1.3;
+      stroke-linejoin: round;
+      stroke-linecap: round;
+    }
+    #match-travel .follow-mode-text strong {
+      margin-right: 0.3rem;
+      font-size: 0.66rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--navy, #173149);
+    }
+    #match-travel .follow-mode-text small { display: block; font-size: 0.72rem; color: var(--muted, #5d6874); }
+    #match-travel .follow-mode-or {
+      font-family: var(--font-display, "Playfair Display", Georgia, serif);
+      font-style: italic;
+      font-size: 0.85rem;
+      color: var(--coral-deep, #c9413b);
+    }
+    @media (max-width: 760px) {
+      #match-travel .follow-connector { flex-direction: column; gap: 0.5rem; padding: 0.9rem 0; }
+      #match-travel .follow-connector-line { width: 26px; height: 40px; }
+      #match-travel .follow-modes { gap: 0.25rem; margin-top: 0; }
+      #match-travel .follow-mode-text small { display: inline; }
+    }
+
+    @media (min-width: 961px) {
+      /* Location: new two-line SEO headline */
+      #location-title { margin-bottom: 1.1rem; }
+
+      /* Packages: tighter top hierarchy inside each card (cards otherwise unchanged) */
+      #packages-title { font-size: clamp(2.1rem, 0.9rem + 2.4vw, 2.9rem); line-height: 1.12; }
+      #packages .package-top { margin-bottom: 0.65rem; }
+      #packages .package .package-nights { align-content: flex-start; min-height: 3.5rem; margin-bottom: 0; }
+      #packages .package-event { margin-top: 0.7rem; }
+      #packages .package { padding-top: 2.25rem; }
+
+      /* Supporter kit: fits a laptop viewport */
+      #supporter-kit.section { padding-block: clamp(2.5rem, 1.25rem + 2.4vw, 3.5rem); }
+      #supporter-kit .split-kit { column-gap: clamp(2.5rem, 1rem + 4vw, 5.5rem); }
+      #supporter-kit .kit-photo img { aspect-ratio: 4 / 4.4; }
+      #supporter-kit .split-text .eyebrow { margin-bottom: 0.8rem; }
+      #supporter-kit #kit-title { font-size: clamp(2rem, 0.9rem + 2vw, 2.6rem); line-height: 1.12; margin-bottom: 1rem; }
+      #supporter-kit .split-text .lead { margin-bottom: 0.9rem; }
+      #supporter-kit .split-text > p:not(.eyebrow):not(.lead):not(.fine-print) { margin-bottom: 0; }
+      #supporter-kit .scarf-preview { margin: 1.1rem 0 1rem; }
+      #supporter-kit .scarf-caption { margin-top: 0.5rem; }
+      #supporter-kit .micro-head { margin-bottom: 0.7rem; }
+      #supporter-kit .team-scroller { padding-bottom: 0.5rem; }
+      #supporter-kit .kit-details-left { margin-top: 0.9rem; }
+      #supporter-kit .kit-details summary { padding: 0.85rem 0; }
+
+      /* Explore Dublin: heading, intro and image grid within about one screen */
+      #dublin.section { padding-block: clamp(2.5rem, 1.25rem + 2.4vw, 3.5rem); }
+      #dublin .dublin-intro { max-width: none; margin-bottom: 1.5rem; }
+      #dublin .dublin-intro .eyebrow { margin-bottom: 0.7rem; }
+      #dublin-title { font-size: clamp(2.2rem, 1rem + 2.2vw, 3rem); line-height: 1.08; margin-bottom: 0.8rem; }
+      #dublin .dublin-intro .lead { max-width: 52em; margin-bottom: 0.35rem; }
+      #dublin .dublin-intro .section-copy { max-width: none; }
+      #dublin .dublin-grid { gap: 1rem; }
+      #dublin .dublin-side { gap: 1rem; }
+      #dublin .dublin-feature img { aspect-ratio: 16 / 9.4; }
+      #dublin .dublin-small { min-height: 0; }
+      #dublin .dublin-feature figcaption,
+      #dublin .dublin-small figcaption { padding: 2.75rem 1.4rem 1.1rem; }
+
+      /* Celebrate with us: a compact supporting band */
+      #social.section { padding-block: clamp(2rem, 1rem + 1.8vw, 2.75rem); }
+      #social .section-head { max-width: none; margin-bottom: 1.25rem; }
+      #social .section-head .eyebrow { margin-bottom: 0.5rem; }
+      #social-title { font-size: clamp(1.5rem, 1rem + 0.9vw, 1.9rem); margin-bottom: 0.45rem; }
+      #social .section-head .lead { max-width: none; font-size: 1rem; margin-bottom: 0; }
+      #social .social-grid { max-width: 780px; margin-inline: auto; gap: 0.9rem; }
+      #social .social-tile img { aspect-ratio: 1 / 1; }
+      #social .social-tile-offset { margin-top: 1.25rem; }
+      #social .social-tile figcaption { font-size: 0.95rem; left: 0.75rem; bottom: 0.65rem; }
+      #social .social-tags { margin-top: 1.1rem; }
+
+      /* Match travel: one compact story */
+      #match-travel.section { padding-block: clamp(2.5rem, 1.25rem + 2.4vw, 3.5rem); }
+      #match-travel .follow-head { margin-bottom: 1.25rem; }
+      #match-travel .follow-head .eyebrow { margin-bottom: 0.7rem; }
+      #follow-title { font-size: clamp(1.9rem, 0.9rem + 1.9vw, 2.6rem); }
+      #match-travel .follow-head-copy .lead { margin-bottom: 0.5rem; }
+      #match-travel .follow-head-copy p + p:not(.lead) { margin-top: 0.4rem; }
+      #match-travel .follow-journey { grid-template-columns: minmax(0, 0.85fr) minmax(190px, 0.6fr) minmax(0, 1.15fr); }
+      #match-travel .follow-card { padding: 1.1rem 1.4rem; }
+      #match-travel .follow-card-to { padding: 1.35rem 1.75rem; }
+      #match-travel .follow-card-label { margin-bottom: 0.55rem; }
+      #match-travel .follow-day { font-size: clamp(2rem, 1.6rem + 0.8vw, 2.4rem); }
+      #match-travel .follow-card-to .follow-day { font-size: clamp(2.4rem, 1.9rem + 1.1vw, 3rem); }
+      #match-travel .follow-date { margin-bottom: 0.2rem; }
+      #match-travel .follow-city { font-size: clamp(1.4rem, 1.1rem + 0.8vw, 1.8rem); margin-bottom: 0.45rem; }
+      #match-travel .follow-card-to .follow-city { font-size: clamp(1.8rem, 1.3rem + 1.2vw, 2.4rem); }
+      #match-travel .follow-card-stay { margin-top: 0.75rem; padding-top: 0.65rem; }
+      #match-travel .follow-between { margin-top: 1.1rem; padding-top: 1rem; }
+      #match-travel .follow-gap { font-size: clamp(1.35rem, 1.1rem + 0.7vw, 1.75rem); margin-bottom: 0.9rem; }
+      #match-travel .follow-benefits { gap: 1.25rem 2rem; }
+      #match-travel .follow-benefits svg { width: 22px; height: 22px; margin-bottom: 0.35rem; }
+      #match-travel .follow-benefits h3 { margin-bottom: 0.3rem; }
+      #match-travel .follow-cta { margin-top: 1.25rem; }
+    }
+  </style>
+  <!-- =========================================================
+       KIT LEVELS + PACKAGE KIT LINKS (scoped; styles.css untouched)
+       ========================================================= -->
+  <style id="kit-levels-styles">
+    /* Three kit levels inside the existing "What's in the Kit" dropdown */
+    #supporter-kit .kit-levels { display: grid; gap: 0.75rem; padding-bottom: 0.9rem; }
+    #supporter-kit .kit-details .kit-level {
+      margin: 0;
+      padding: 0;
+      font-size: 0.82rem;
+      line-height: 1.55;
+      color: var(--muted, #5d6874);
+    }
+    #supporter-kit .kit-level strong {
+      display: block;
+      margin-bottom: 0.15rem;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--navy, #173149);
+    }
+    #supporter-kit .kit-details p.fine-print { padding-bottom: 1rem; font-size: 0.75rem; }
+
+    /* Supporter-kit names in package cards: subtle in-card links to #supporter-kit */
+    #packages .package-kit-link {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(233, 84, 77, 0.45);
+      transition: border-color 300ms ease, color 300ms ease;
+    }
+    #packages .package-kit-link:hover,
+    #packages .package-kit-link:focus-visible { color: var(--coral-deep, #c9413b); border-bottom-color: var(--coral, #e9544d); }
+  </style>
+  <!-- Flags that JS is running, so reveal animations only hide content when they can also show it -->
+  <script>document.documentElement.classList.add('js');</script>
+
+  <!-- Structured data: Hotel (confirmed details only — add telephone, url,
+       geo, priceRange etc. only once real information is supplied) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Hotel",
+    "name": "Herbert Park Hotel & Park Residence",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Dublin",
+      "addressRegion": "Dublin",
+      "addressCountry": "IE"
+    }
+  }
+  </script>
+
+  <!-- Structured data: FAQPage — must match the visible FAQ section (#faq) word for word -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How far is Herbert Park Hotel from Aviva Stadium?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Herbert Park Hotel & Park Residence is approximately 1 km from Aviva Stadium, making it an easy 15-minute walk through Ballsbridge for match days." }
+      },
+      {
+        "@type": "Question",
+        "name": "Where should I stay in Dublin for EURO 2028?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Ballsbridge is a convenient area for supporters looking for accommodation near Aviva Stadium while remaining within easy reach of Dublin city centre. Herbert Park Hotel & Park Residence provides hotel rooms and longer-stay accommodation in Dublin 4." }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Herbert Park offer EURO 2028 hotel packages?",
+        "acceptedAnswer": { "@type": "Answer", "text": "The EURO 2028 campaign includes planned multi-night match stays with accommodation, breakfast and supporter extras. Final package inclusions, availability and rates are subject to confirmation." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I stay longer and explore Dublin during EURO 2028?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Longer stays are designed to give guests time to explore Dublin, the coast and optional Ireland day-trip experiences between matches." }
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- =========================================================
+       HEADER / NAVIGATION
+       ========================================================= -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+
+      <!-- LOGO
+           Temporary text logo. To use the official asset, replace the
+           contents of this link with:
+           <img src="assets/images/logo.png" alt="Herbert Park Hotel & Park Residence" class="logo-img" /> -->
+      <a href="#top" class="logo" aria-label="Herbert Park Hotel and Park Residence — back to top">
+        <span class="logo-main">Herbert Park</span>
+        <span class="logo-sub">Hotel &amp; Park Residence</span>
+      </a>
+
+      <nav class="primary-nav" id="primaryNav" aria-label="Main navigation">
+        <ul>
+          <li><a href="#packages">EURO 2028 Packages</a></li>
+          <li><a href="#rooms">Rooms</a></li>
+          <li><a href="#supporter-kit">Supporter Kit</a></li>
+          <li><a href="#dublin">Explore Dublin</a></li>
+          <li><a href="#match-travel">Match Travel</a></li>
+        </ul>
+        <a href="#book" class="btn btn-coral nav-mobile-book" data-open-booking>Book Your Stay</a>
+      </nav>
+
+      <div class="header-actions">
+        <!-- "Book Your EURO 2028 Stay" did not fit beside the five-item nav at any desktop width, so the header keeps the short label -->
+        <a href="#book" class="btn btn-coral btn-sm header-book" data-open-booking>Book Your Stay</a>
+        <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="primaryNav" aria-label="Open menu">
+          <span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- =========================================================
+         1. HERO — Celebrate Every Goal. & Experience Dublin.
+         ---------------------------------------------------------
+         VIDEO: drop your Google Flow / AI film at
+           assets/videos/hero-football-hotel.mp4
+         No text should be baked into the video — all copy below is HTML.
+         POSTER: assets/images/hero-poster.jpg shows until the video loads,
+         and remains as the fallback if no video is present.
+         ========================================================= -->
+    <section class="hero" id="top" aria-label="Campaign introduction">
+      <div class="hero-media">
+        <video class="hero-video" id="heroVideo"
+               autoplay muted loop playsinline
+               poster="assets/images/hero-poster.jpg"
+               aria-hidden="true">
+          <source src="assets/videos/hero-football-hotel.mp4" type="video/mp4" />
+        </video>
+        <div class="hero-overlay"></div>
+      </div>
+
+      <div class="container hero-content">
+        <p class="eyebrow eyebrow-light">EURO 2028 · Dublin · Aviva Stadium</p>
+        <h1 class="hero-title">
+          <span class="hero-line-1">Celebrate Every Goal.</span>
+          <span class="hero-line-2"><span class="amp">&amp;</span> Experience Dublin.</span>
+        </h1>
+        <p class="hero-support">Stay just a 15-minute walk from Aviva Stadium.</p>
+        <p class="hero-secondary">Walk back to comfort. Stay for Dublin.</p>
+        <a href="#packages" class="btn btn-light">Explore EURO 2028 Stays</a>
+      </div>
+
+      <button class="video-toggle" id="videoToggle" aria-label="Pause background video" aria-pressed="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true" class="icon-pause"><rect x="6" y="5" width="4" height="14"/><rect x="14" y="5" width="4" height="14"/></svg>
+        <svg viewBox="0 0 24 24" aria-hidden="true" class="icon-play"><path d="M7 5l12 7-12 7z"/></svg>
+      </button>
+
+      <a href="#location" class="scroll-cue" aria-label="Scroll to location">
+        <span>Scroll</span>
+        <i aria-hidden="true"></i>
+      </a>
+    </section>
+
+
+    <!-- =========================================================
+         2. LOCATION — Stay Near Aviva Stadium for EURO 2028.
+         ========================================================= -->
+    <section class="section location" id="location" aria-labelledby="location-title">
+      <div class="container split split-location">
+
+        <div class="split-text reveal">
+          <p class="eyebrow">Our Location · Ballsbridge, Dublin 4</p>
+          <h2 id="location-title" class="display-lg">Your EURO 2028 Hotel<br />Near Aviva Stadium.</h2>
+          <p class="lead">Just a 15-minute walk from Aviva Stadium.</p>
+          <p>Stay at Herbert Park Hotel &amp; Park Residence in Ballsbridge, Dublin 4 — approximately 1 km from Aviva Stadium and within easy walking distance of the EURO 2028 action.</p>
+          <p>Walk to the match without worrying about match-day traffic or transport queues, then return to the comfort of Herbert Park. Nearby transport makes exploring Dublin easy between matches, with the nearest bus stop around a 5-minute walk away, and Ranelagh Luas and Lansdowne Road DART stations approximately 15 minutes away on foot.</p>
+
+          <ul class="walk-steps" aria-label="Walking distance from Herbert Park Hotel to Aviva Stadium">
+            <li><span>Herbert Park</span></li>
+            <li><span>15-minute walk</span></li>
+            <li><span>Aviva Stadium</span></li>
+          </ul>
+
+          <!-- Opens Google Maps walking directions (Maps URLs API — no key needed) -->
+          <a href="https://www.google.com/maps/dir/?api=1&amp;origin=Herbert+Park+Hotel+and+Park+Residence,+Ballsbridge,+Dublin+4&amp;destination=Aviva+Stadium,+Lansdowne+Road,+Dublin+4&amp;travelmode=walking" class="link-arrow" target="_blank" rel="noopener">Get Walking Directions<span class="visually-hidden"> (opens Google Maps in a new tab)</span></a>
+        </div>
+
+        <!-- Interactive Google Map — walking route from the hotel to Aviva Stadium.
+             This keyless embed URL shows walking directions (saddr = start,
+             daddr = destination, dirflg=w = walking).
+             For production, Google's official Maps Embed API is recommended
+             (needs a free API key with the Maps Embed API enabled):
+             https://www.google.com/maps/embed/v1/directions?key=YOUR_API_KEY&origin=Herbert+Park+Hotel+and+Park+Residence,+Ballsbridge,+Dublin+4&destination=Aviva+Stadium,+Lansdowne+Road,+Dublin+4&mode=walking -->
+        <figure class="split-media route-map reveal">
+          <div class="map-frame">
+            <iframe
+              class="map-embed"
+              src="https://maps.google.com/maps?saddr=Herbert+Park+Hotel+and+Park+Residence,+Ballsbridge,+Dublin+4&amp;daddr=Aviva+Stadium,+Lansdowne+Road,+Dublin+4&amp;dirflg=w&amp;output=embed"
+              title="Google Map: walking route from Herbert Park Hotel &amp; Park Residence in Ballsbridge to Aviva Stadium, Dublin"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              allowfullscreen></iframe>
+          </div>
+          <figcaption>
+            <span class="map-legend"><i class="dot-start" aria-hidden="true"></i>Herbert Park Hotel</span>
+            <span class="map-legend-line" aria-hidden="true"></span>
+            <span class="map-legend"><i class="dot-end" aria-hidden="true"></i>Aviva Stadium</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+
+    <!-- =========================================================
+         3. EURO 2028 STAY PACKAGES — The Longer You Stay, The More You Experience
+         ---------------------------------------------------------
+         Packages are rendered from the PACKAGES array at the top of
+         script.js. Each package builds on the one before; ★ marks
+         experiences newly unlocked at that level. Room type is NOT
+         part of a package — guests choose it separately.
+         ========================================================= -->
+    <section class="section packages" id="packages" aria-labelledby="packages-title">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow">EURO 2028 Stay Packages</p>
+          <h2 id="packages-title" class="display-lg">The Longer You Stay,<br /><em>The More You Experience</em></h2>
+          <p class="lead">From a match weekend in Dublin to an extended Irish getaway, choose the EURO 2028 experience that suits your trip.</p>
+          <p class="package-legend"><span class="package-star" aria-hidden="true">★</span> Extra experience unlocked with this stay</p>
+        </header>
+
+        <div class="package-row" id="packageRow" role="list">
+          <!-- Populated by script.js → renderPackages() -->
+        </div>
+
+        <!-- Room choice is separate from the package: guests pick a package first, then a room -->
+        <aside class="package-rooms-callout reveal" aria-labelledby="package-rooms-title">
+          <h3 id="package-rooms-title" class="package-rooms-title">Bringing the whole team?</h3>
+          <div class="package-rooms-copy">
+            <p>Family rooms and interconnecting rooms are available across our EURO 2028 stays, with family-friendly Dublin and Ireland experience options.</p>
+            <p class="package-rooms-note">Choose your EURO experience first, then select the room that works for you.</p>
+          </div>
+          <a href="#rooms" class="link-arrow">Explore Rooms</a>
+        </aside>
+
+        <p class="fine-print reveal">Package names and inclusions are illustrative and subject to confirmation. *Late checkout subject to availability. Room type is selected separately. Rates on enquiry. Match tickets are not included.</p>
+      </div>
+    </section>
+
+
+    <!-- =========================================================
+         4. SUPPORTER KIT — Your Match. Your Colours.
+         ========================================================= -->
+    <section class="section kit" id="supporter-kit" aria-labelledby="kit-title">
+      <div class="container split split-kit">
+
+        <figure class="split-media kit-photo reveal">
+          <!-- OFFICIAL PHOTOGRAPHY: supporter kit laid out on a Herbert Park bed,
+               waiting for guests on arrival → assets/images/supporter-kit.jpg -->
+          <img src="assets/images/supporter-kit.jpg" alt="EURO 2028 Herbert Park Hotel supporter kit with scarf, cap, water bottle, stadium walking map and match-day essentials in a Dublin hotel room" loading="lazy" />
+          <figcaption class="photo-note">Waiting in your room on arrival.</figcaption>
+        </figure>
+
+          <!-- Progressive disclosure: contents are available but not shown as a long list -->
+          <details class="kit-details kit-details-left">
+            <summary>What's in the Kit (Starter · Enhanced · Premium)</summary>
+            <div class="kit-levels">
+              <p class="kit-level"><strong>Herbert Park Supporter Kit</strong>A Herbert Park supporter scarf in your team colours, a reusable water bottle, rain poncho, Aviva Stadium walking map, Dublin pocket guide, match-day snacks with healthier options, football keychain, commemorative postcard and a shoulder-carry drawstring bag to carry it all.</p>
+              <p class="kit-level"><strong>Enhanced Supporter Kit</strong>Everything in the Herbert Park Supporter Kit, plus a take-home football, team-colour face-paint kit and supporter cap.</p>
+              <p class="kit-level"><strong>Premium Supporter Kit</strong>Everything in the Enhanced Supporter Kit, plus a team-colour supporter T-shirt, matchday sunglasses, mini football pump and needle, and one disposable camera per room.</p>
+            </div>
+            <p class="fine-print fine-print-left">Kit contents are conceptual and may vary.</p>
+          </details>
+
+        <div class="split-text reveal">
+          <p class="eyebrow">EURO 2028 Supporter Experience</p>
+          <h2 id="kit-title" class="display-lg">Celebrate Every Goal<br />in Your Team Colours.</h2>
+          <p class="lead">Make your EURO 2028 hotel stay in Dublin more memorable with the Herbert Park Supporter Kit, prepared in your chosen team colours.</p>
+          <p>Your supporter kit will be waiting in your room at Herbert Park Hotel when you arrive, with practical match-day essentials for the walk to Aviva Stadium and keepsakes from your Dublin stay.</p>
+
+          <!-- Live scarf preview — stripe colours update with the team selector -->
+          <div class="scarf-preview" id="scarfPreview" aria-live="polite">
+            <svg class="scarf" viewBox="0 0 640 120" role="img" aria-labelledby="scarf-title">
+              <title id="scarf-title">Herbert Park supporter scarf in the selected team colours</title>
+              <defs>
+                <pattern id="knit" width="6" height="6" patternUnits="userSpaceOnUse">
+                  <path d="M0 3 L3 0 L6 3" fill="none" stroke="rgba(0,0,0,.07)" stroke-width="1"/>
+                </pattern>
+              </defs>
+              <!-- fringe -->
+              <g class="scarf-fringe">
+                <path d="M20 26 v68 M26 26 v68 M32 26 v68 M38 26 v68 M44 26 v68"/>
+                <path d="M596 26 v68 M602 26 v68 M608 26 v68 M614 26 v68 M620 26 v68"/>
+              </g>
+              <!-- body -->
+              <rect x="44" y="20" width="552" height="80" rx="3" class="scarf-c1"/>
+              <!-- left end stripes -->
+              <rect x="64" y="20" width="18" height="80" class="scarf-c2"/>
+              <rect x="88" y="20" width="10" height="80" class="scarf-c3"/>
+              <rect x="104" y="20" width="18" height="80" class="scarf-c2"/>
+              <!-- right end stripes -->
+              <rect x="518" y="20" width="18" height="80" class="scarf-c2"/>
+              <rect x="542" y="20" width="10" height="80" class="scarf-c3"/>
+              <rect x="558" y="20" width="18" height="80" class="scarf-c2"/>
+              <!-- centre panel -->
+              <rect x="140" y="34" width="360" height="52" rx="2" class="scarf-panel"/>
+              <text x="320" y="66" text-anchor="middle" class="scarf-text" id="scarfText">HERBERT PARK</text>
+              <!-- small woven football motifs -->
+              <g class="scarf-ball"><circle cx="128" cy="60" r="5"/><circle cx="512" cy="60" r="5"/></g>
+              <rect x="44" y="20" width="552" height="80" fill="url(#knit)"/>
+            </svg>
+            <p class="scarf-caption">Shown in <strong id="teamName">Herbert Park</strong> colours</p>
+          </div>
+
+          <!-- Team selector. Teams are defined in TEAMS in script.js -->
+          <div class="team-select">
+            <p class="micro-head" id="team-label">Choose Your Colours</p>
+            <div class="team-scroller" id="teamScroller" role="radiogroup" aria-labelledby="team-label">
+              <!-- Populated by script.js → renderTeams() -->
+            </div>
+            <p class="fine-print fine-print-left">Team colours shown for illustration only. No national team crests or tournament marks are used.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =========================================================
+         5. ROOMS — Find Your EURO 2028 Stay in Dublin.
+         ---------------------------------------------------------
+         Room choice is SEPARATE from the package: guests choose
+         their EURO 2028 experience first, then their accommodation,
+         then book dates, guests and room in the booking engine.
+         Two-panel chooser: Hotel Rooms (navy) and Park Residence
+         (coral). Each tile is one link (image, name, "View room") to
+         the official Herbert Park page for that room.
+         OFFICIAL PHOTOGRAPHY: replace the images in assets/images
+         (same file names) with real Herbert Park photography.
+         ========================================================= -->
+    <section class="section rooms" id="rooms" aria-labelledby="rooms-title">
+      <div class="container">
+        <header class="rooms-head reveal">
+          <p class="eyebrow">EURO 2028 Rooms &amp; Accommodation · Dublin</p>
+          <h2 id="rooms-title" class="rooms-title">Find Your EURO 2028 Stay in Dublin.</h2>
+          <p class="rooms-intro">Choose from Herbert Park Hotel rooms or Park Residence studios and apartments, then explore the room that suits your EURO 2028 stay.</p>
+        </header>
+
+        <div class="rooms-chooser reveal">
+
+          <!-- HOTEL ROOMS — navy panel -->
+          <div class="rooms-panel rooms-panel-hotel">
+            <div class="rooms-panel-head">
+              <h3 class="rooms-panel-title" id="rooms-hotel-title">Hotel Rooms</h3>
+              <p class="rooms-panel-note">Herbert Park Hotel, Ballsbridge</p>
+            </div>
+            <ul class="rooms-tiles" aria-labelledby="rooms-hotel-title">
+              <li>
+                <a class="room-tile" href="https://www.herbertparkhotel.ie/classic-room" aria-label="View room: Classic King Room">
+                  <span class="room-tile-img"><img src="assets/images/classic-room.jpg" alt="Classic King Room at Herbert Park Hotel near Aviva Stadium, Dublin" loading="lazy" /></span>
+                  <span class="room-tile-name">Classic King Room</span>
+                  <span class="room-tile-cta" aria-hidden="true">View room</span>
+                </a>
+              </li>
+              <li>
+                <a class="room-tile" href="https://www.herbertparkhotel.ie/executive-room" aria-label="View room: Executive King Room">
+                  <span class="room-tile-img"><img src="assets/images/executive-room.jpg" alt="Executive King Room at Herbert Park Hotel in Ballsbridge, Dublin" loading="lazy" /></span>
+                  <span class="room-tile-name">Executive King Room</span>
+                  <span class="room-tile-cta" aria-hidden="true">View room</span>
+                </a>
+              </li>
+              <li>
+                <a class="room-tile" href="https://www.herbertparkhotel.ie/signature-room" aria-label="View room: Signature King Room">
+                  <span class="room-tile-img"><img src="assets/images/signature-room.jpg" alt="Signature King Room for EURO 2028 accommodation in Dublin" loading="lazy" /></span>
+                  <span class="room-tile-name">Signature King Room</span>
+                  <span class="room-tile-cta" aria-hidden="true">View room</span>
+                </a>
+              </li>
+              <li>
+                <a class="room-tile" href="https://www.herbertparkhotel.ie/balcony-room-apartments" aria-label="View room: Balcony Rooms &amp; Studio Apartments">
+                  <span class="room-tile-img"><img src="assets/images/balcony-room.jpg" alt="Balcony room at Herbert Park Hotel overlooking Herbert Park, Dublin 4" loading="lazy" /></span>
+                  <span class="room-tile-name">Balcony Rooms &amp; Studio Apartments</span>
+                  <span class="room-tile-cta" aria-hidden="true">View room</span>
+                </a>
+              </li>
+              <li>
+                <a class="room-tile" href="https://www.herbertparkhotel.ie/family-rooms" aria-label="View room: Family Rooms">
+                  <span class="room-tile-img"><img src="assets/images/family-room.jpg" alt="Family Room at Herbert Park Hotel near Aviva Stadium" loading="lazy" /></span>
+                  <span class="room-tile-name">Family Rooms</span>
+                  <span class="room-tile-cta" aria-hidden="true">View room</span>
+                </a>
+              </li>
+              <li>
+                <a class="room-tile" href="https://www.herbertparkhotel.ie/penthouse" aria-label="View room: Penthouse Suite">
+                  <span class="room-tile-img"><img src="assets/images/penthouse-suite.jpg" alt="Penthouse Suite at Herbert Park Hotel, Ballsbridge" loading="lazy" /></span>
+                  <span class="room-tile-name">Penthouse Suite</span>
+                  <span class="room-tile-cta" aria-hidden="true">View room</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- PARK RESIDENCE — coral panel -->
+          <div class="rooms-panel rooms-panel-residence" id="park-residence">
+            <div class="rooms-panel-head">
+              <h3 class="rooms-panel-title" id="rooms-park-title">Park Residence</h3>
+              <p class="rooms-panel-note">Studios &amp; apartments</p>
+            </div>
+            <ul class="rooms-tiles" aria-labelledby="rooms-park-title">
+              <li>
+                <a class="room-tile" href="https://www.herbertparkhotel.ie/park-view-studio" aria-label="View room: Park View Studio">
+                  <span class="room-tile-img"><img src="assets/images/park-view-studio.jpg" alt="Park View Studio at Park Residence, Herbert Park, Dublin 4" loading="lazy" /></span>
+                  <span class="room-tile-name">Park View Studio</span>
+                  <span class="room-tile-cta" aria-hidden="true">View room</span>
+                </a>
+              </li>
+              <li>
+                <a class="room-tile" href="https://www.herbertparkhotel.ie/courtyard-studio" aria-label="View room: Courtyard Studio">
+                  <span class="room-tile-img"><img src="assets/images/courtyard-studio.jpg" alt="Courtyard Studio at Park Residence in Ballsbridge, Dublin" loading="lazy" /></span>
+                  <span class="room-tile-name">Courtyard Studio</span>
+                  <span class="room-tile-cta" aria-hidden="true">View room</span>
+                </a>
+              </li>
+              <li>
+                <a class="room-tile" href="https://www.herbertparkhotel.ie/park-view-studio-sofa-bed" aria-label="View room: Park View Studio with Sofa Bed">
+                  <span class="room-tile-img"><img src="assets/images/park-view-studio-sofa-bed.jpg" alt="Park View Studio with sofa bed for extended EURO 2028 stays in Dublin" loading="lazy" /></span>
+                  <span class="room-tile-name">Park View Studio with Sofa Bed</span>
+                  <span class="room-tile-cta" aria-hidden="true">View room</span>
+                </a>
+              </li>
+              <li>
+                <a class="room-tile" href="https://www.herbertparkhotel.ie/services" aria-label="View room: Serviced Apartments">
+                  <span class="room-tile-img"><img src="assets/images/serviced-apartment.jpg" alt="Serviced apartment at Park Residence for longer stays in Dublin 4" loading="lazy" /></span>
+                  <span class="room-tile-name">Serviced Apartments</span>
+                  <span class="room-tile-cta" aria-hidden="true">View room</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- One booking CTA: dates, guests, rooms and room type in the official booking engine -->
+        <div class="rooms-book reveal">
+          <p class="rooms-book-text">Found your stay?</p>
+          <a href="https://bookings.herbertparkhotel.ie/search-rates" class="btn btn-coral" data-open-booking>Book Your Stay</a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =========================================================
+         6. EXPERIENCE DUBLIN — Come for the Match. Stay for Dublin.
+         ========================================================= -->
+    <section class="section dublin" id="dublin" aria-labelledby="dublin-title">
+      <div class="container">
+        <div class="dublin-intro reveal">
+          <p class="eyebrow">Explore Dublin During EURO 2028</p>
+          <h2 id="dublin-title" class="display-xl">Come for the Match.<br /><em>Stay for Dublin.</em></h2>
+          <p class="lead">Make your EURO 2028 trip more than a match weekend. From Herbert Park Hotel in Ballsbridge, explore Dublin city centre, its food, culture, neighbourhoods and coastline between fixtures.</p>
+          <p class="section-copy">Stay longer, experience more of Dublin and return each evening to your hotel near Aviva Stadium.</p>
+        </div>
+
+        <div class="dublin-grid">
+          <!-- OFFICIAL / LICENSED PHOTOGRAPHY: assets/images/dublin.jpg -->
+          <figure class="dublin-feature reveal">
+            <img src="assets/images/dublin.jpg" alt="Dublin city experience during a EURO 2028 hotel stay" loading="lazy" />
+            <figcaption><span>Dublin City</span>Explore Dublin's culture, food, shopping and neighbourhoods between EURO 2028 matches.</figcaption>
+          </figure>
+
+          <div class="dublin-side">
+            <figure class="dublin-small reveal">
+              <img src="assets/images/howth.jpg" alt="Howth coastal day trip from Dublin during EURO 2028" loading="lazy" />
+              <figcaption><span>Howth</span>Take a coastal day trip from Dublin for cliff walks, harbour views and seafood.</figcaption>
+            </figure>
+            <figure class="dublin-small reveal">
+              <img src="assets/images/social-04.jpg" alt="Dublin pub and city experience for EURO 2028 visitors" loading="lazy" />
+              <figcaption><span>Dublin Experiences</span>Discover some of Dublin's best-known food, culture and visitor experiences during your stay.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =========================================================
+         7. SOCIAL / UGC — Celebrate with us.
+         ========================================================= -->
+    <section class="section social" id="social" aria-labelledby="social-title">
+      <div class="container">
+        <header class="section-head section-head-center reveal">
+          <p class="eyebrow">EURO 2028 in Dublin · Your Match-Day Moments</p>
+          <h2 id="social-title" class="display-lg">Celebrate with us.</h2>
+          <p class="lead">Share your EURO 2028 stay in Dublin, your walk to Aviva Stadium and the moments you experience at Herbert Park with <strong class="hashtag">#CelebrateEveryGoal</strong>.</p>
+        </header>
+
+        <!-- Replace with curated guest photography (with permission) or an Instagram embed -->
+        <div class="social-grid">
+          <figure class="social-tile reveal">
+            <img src="assets/images/social-02.jpg" alt="Herbert Park Hotel supporter kit in a guest room" loading="lazy" />
+            <figcaption>Open your kit</figcaption>
+          </figure>
+          <figure class="social-tile social-tile-offset reveal">
+            <img src="assets/images/social-01.jpg" alt="Football supporters in team scarves celebrating in Dublin" loading="lazy" />
+            <figcaption>Wear your colours</figcaption>
+          </figure>
+          <figure class="social-tile reveal">
+            <img src="assets/images/social-03.jpg" alt="Floodlit stadium atmosphere on a Dublin match night" loading="lazy" />
+            <figcaption>Feel the match</figcaption>
+          </figure>
+          <figure class="social-tile social-tile-offset reveal">
+            <img src="assets/images/dublin.jpg" alt="Exploring Dublin city between matches" loading="lazy" />
+            <figcaption>Discover Dublin</figcaption>
+          </figure>
+        </div>
+
+        <p class="social-tags reveal">
+          <span>#CelebrateEveryGoal</span>
+          <span class="dot" aria-hidden="true"></span>
+          <span>#HerbertParkMatchDay</span>
+          <span class="dot" aria-hidden="true"></span>
+          <!-- Replace with the hotel's official Instagram handle -->
+          <a href="#" data-placeholder-link>@herbertparkhotel <em>(placeholder)</em></a>
+        </p>
+      </div>
+    </section>
+
+
+    <!-- =========================================================
+         8. DAY TRIPS / LONGER STAYS
+         ========================================================= -->
+    <section class="section daytrips" id="day-trips" aria-labelledby="daytrips-title">
+      <div class="container split split-daytrips">
+        <div class="split-text reveal">
+          <p class="eyebrow eyebrow-light">Extend Your EURO 2028 Stay in Ireland</p>
+          <h2 id="daytrips-title" class="display-lg">Stay Longer. Discover More of Ireland.</h2>
+          <p class="lead">With time between matches, your EURO 2028 trip to Dublin can become a longer Ireland experience.</p>
+          <p>Use Herbert Park Hotel as your Dublin base and explore beyond the city with optional day trips to Howth, Galway and other destinations around Ireland through local tour partners.</p>
+
+          <ol class="trip-list">
+            <li><span class="trip-num">01</span><span class="trip-name">Howth</span><span class="trip-meta">Coast &amp; cliffs</span></li>
+            <li><span class="trip-num">02</span><span class="trip-name">Galway</span><span class="trip-meta">A day in the west</span></li>
+            <li><span class="trip-num">03</span><span class="trip-name">Dublin Experiences</span><span class="trip-meta">City, food &amp; culture</span></li>
+            <li><span class="trip-num">04</span><span class="trip-name">More Ireland Day Trips</span><span class="trip-meta">Explore day-trip options</span></li>
+          </ol>
+
+          <a href="#" class="btn btn-coral" data-placeholder-link>Plan Your Ireland Day Trips</a>
+          <p class="fine-print fine-print-left fine-print-light">Day trips are optional and arranged with local tour providers. Availability and inclusions to be confirmed.</p>
+        </div>
+
+        <figure class="split-media daytrip-photo reveal">
+          <!-- LICENSED PHOTOGRAPHY: assets/images/galway.jpg -->
+          <img src="assets/images/galway.jpg" alt="West of Ireland coastline on a Galway day trip from Dublin" loading="lazy" />
+        </figure>
+      </div>
+    </section>
+
+
+    <!-- =========================================================
+         9. FOLLOW YOUR TEAM SECTION — "Liverpool done. Dublin next."
+         ---------------------------------------------------------
+         Secondary campaign idea for supporters whose EURO 2028
+         journey brings their team to Dublin.
+         Fixture source: UEFA EURO 2028 schedule — the Group E team
+         playing at Everton Stadium on 17 June plays its next group
+         match at Aviva Stadium on 21 June.
+         TO PERSONALISE once the draw is known: edit the eyebrow
+         (e.g. "Following [COUNTRY]?"), the two fixture cards and the
+         "4 days between fixtures" line. Team names are deliberately
+         not used until the participating countries are confirmed.
+         ========================================================= -->
+    <section class="section follow" id="match-travel" aria-labelledby="follow-title">
+      <div class="container">
+
+        <header class="follow-head reveal">
+          <div class="follow-head-title">
+            <p class="eyebrow">Follow Your Team · EURO 2028</p>
+            <h2 id="follow-title" class="display-lg">Liverpool done.<br /><em>Dublin next.</em></h2>
+          </div>
+          <div class="follow-head-copy">
+            <p class="lead">Watching your team in Liverpool?</p>
+            <p>If you're following the fixture, the next match in this journey is in Dublin. Stay at Herbert Park between fixtures, explore Dublin and get ready for the next match at Aviva Stadium.</p>
+          </div>
+        </header>
+
+        <!-- Fixture journey: Liverpool → Dublin -->
+        <ol class="follow-journey reveal" aria-label="Example EURO 2028 journey: Liverpool on 17 June 2028, then Dublin on 21 June 2028">
+
+          <!-- LIVERPOOL FIXTURE CARD -->
+          <li class="follow-card follow-card-from">
+            <p class="follow-card-label">This match</p>
+            <p class="follow-date"><span class="follow-day">17</span><span class="follow-month">Jun 2028</span></p>
+            <h3 class="follow-city">Liverpool</h3>
+            <p class="follow-venue">
+              <svg class="follow-venue-icon" viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="12" rx="9" ry="6"/><ellipse cx="12" cy="12" rx="4.5" ry="2.6"/></svg>
+              Everton Stadium
+            </p>
+            <p class="follow-stage">Group Stage</p>
+          </li>
+
+          <!-- TRAVEL CONNECTION — two ways to reach Dublin (indicative journey times; no transport is included or implied).
+               Ferry time is the Holyhead–Dublin crossing: there is no regular direct Liverpool–Dublin passenger ferry. -->
+          <li class="follow-connector">
+            <span class="follow-connector-label">Follow your team</span>
+            <span class="follow-connector-line" aria-hidden="true"></span>
+            <ul class="follow-modes" aria-label="Ways to travel from Liverpool to Dublin">
+              <li class="follow-mode">
+                <svg class="follow-mode-icon" viewBox="0 0 32 20" aria-hidden="true">
+                  <path d="M4 12 L28 12 L24 17 L8 17 Z"/>
+                  <path d="M11 12 V7 H21 V12"/>
+                  <path d="M2 19.2 C 6 17.6, 9 20.8, 13 19.2 S 20 17.6, 24 19.2 S 29 20.8, 31 19.2"/>
+                </svg>
+                <span class="follow-mode-text"><strong>Ferry</strong> approx. 3.5 hrs <small>from Holyhead</small></span>
+              </li>
+              <li class="follow-mode-or" aria-hidden="true">or</li>
+              <li class="follow-mode">
+                <svg class="follow-mode-icon" viewBox="0 0 32 20" aria-hidden="true">
+                  <path d="M3 11.5 L29 8.5"/>
+                  <path d="M14 10.2 L9 3 H12 L20 9.3"/>
+                  <path d="M14.5 10.6 L11 17.5 H14 L21 10.3"/>
+                  <path d="M3.5 11.4 L2 7.5 H4.2 L7 10.6"/>
+                </svg>
+                <span class="follow-mode-text"><strong>Flight</strong> approx. 1 hr</span>
+              </li>
+            </ul>
+          </li>
+
+          <!-- DUBLIN FIXTURE CARD (destination — visually dominant) -->
+          <li class="follow-card follow-card-to">
+            <p class="follow-card-label follow-card-label-next">Next match</p>
+            <p class="follow-date"><span class="follow-day">21</span><span class="follow-month">Jun 2028</span></p>
+            <h3 class="follow-city">Dublin</h3>
+            <p class="follow-venue">
+              <svg class="follow-venue-icon" viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="12" rx="9" ry="6"/><ellipse cx="12" cy="12" rx="4.5" ry="2.6"/></svg>
+              Aviva Stadium
+            </p>
+            <p class="follow-stage">Group Stage</p>
+            <p class="follow-card-stay">Your Dublin base: Herbert Park Hotel, a 15-minute walk away.</p>
+          </li>
+        </ol>
+
+        <!-- Between fixtures: the Herbert Park proposition -->
+        <div class="follow-between reveal">
+          <p class="follow-gap">4 days between fixtures. <em>Make a trip of it.</em></p>
+
+          <ul class="follow-benefits">
+            <li>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20V10l9-6 9 6v10"/><path d="M9 20v-6h6v6"/></svg>
+              <h3>Stay</h3>
+              <p>Make Herbert Park your Dublin base between fixtures, with EURO 2028 accommodation in Ballsbridge.</p>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></svg>
+              <h3>Experience</h3>
+              <p>Explore Dublin before the next match.</p>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="12" rx="9" ry="6"/><ellipse cx="12" cy="12" rx="4.5" ry="2.6"/></svg>
+              <h3>Matchday</h3>
+              <p>Stay at a hotel near Aviva Stadium, within easy walking distance on match day.</p>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h14"/><path d="M14 7l5 5-5 5"/></svg>
+              <h3>Travel</h3>
+              <p>Need help reaching Dublin? Optional travel assistance can be added to your enquiry.</p>
+            </li>
+          </ul>
+        </div>
+
+        <!-- FOLLOW YOUR TEAM CTA -->
+        <div class="follow-cta reveal">
+          <a href="#packages" class="btn btn-coral">Plan Your Dublin Stay</a>
+          <p class="fine-print fine-print-left">Travel options and package inclusions subject to confirmation. Match tickets are not included.</p>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =========================================================
+         10. FAQ — EURO 2028 Hotel & Aviva Stadium
+         ---------------------------------------------------------
+         Visible answers. The FAQPage JSON-LD in <head> must stay
+         identical to this copy — update both together.
+         ========================================================= -->
+    <section class="section faq" id="faq" aria-labelledby="faq-title">
+      <div class="container faq-inner">
+        <header class="faq-head reveal">
+          <p class="eyebrow">Planning Your Stay</p>
+          <h2 id="faq-title" class="display-lg">EURO 2028 Hotel &amp; Aviva Stadium FAQs</h2>
+        </header>
+
+        <div class="faq-list reveal">
+          <div class="faq-item">
+            <h3 class="faq-q">How far is Herbert Park Hotel from Aviva Stadium?</h3>
+            <p class="faq-a">Herbert Park Hotel &amp; Park Residence is approximately 1 km from Aviva Stadium, making it an easy 15-minute walk through Ballsbridge for match days.</p>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-q">Where should I stay in Dublin for EURO 2028?</h3>
+            <p class="faq-a">Ballsbridge is a convenient area for supporters looking for accommodation near Aviva Stadium while remaining within easy reach of Dublin city centre. Herbert Park Hotel &amp; Park Residence provides hotel rooms and longer-stay accommodation in Dublin 4.</p>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-q">Does Herbert Park offer EURO 2028 hotel packages?</h3>
+            <p class="faq-a">The EURO 2028 campaign includes planned multi-night match stays with accommodation, breakfast and supporter extras. Final package inclusions, availability and rates are subject to confirmation.</p>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-q">Can I stay longer and explore Dublin during EURO 2028?</h3>
+            <p class="faq-a">Yes. Longer stays are designed to give guests time to explore Dublin, the coast and optional Ireland day-trip experiences between matches.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =========================================================
+         11. FINAL CTA
+         ========================================================= -->
+    <section class="final-cta" id="book" aria-labelledby="final-title">
+      <!-- OFFICIAL PHOTOGRAPHY: a calm Herbert Park room at dusk works best here → hero-poster.jpg or a dedicated image -->
+      <div class="final-bg" aria-hidden="true" style="background-image:url('assets/images/signature-room.jpg')"></div>
+      <div class="container final-inner reveal">
+        <h2 id="final-title" class="final-title">
+          <span>Celebrate Every Goal.</span>
+          <span class="final-amp"><span class="amp">&amp;</span> Experience Dublin.</span>
+        </h2>
+        <p class="final-support">Book your EURO 2028 stay in Dublin near Aviva Stadium and make Herbert Park your home for the match and the city.</p>
+        <div class="final-actions">
+          <a href="#packages" class="btn btn-coral">View EURO 2028 Packages</a>
+          <!-- Opens the booking step (falls back to the official booking engine without JavaScript) -->
+          <a href="https://bookings.herbertparkhotel.ie/search-rates" class="btn btn-ghost-light" data-open-booking>Book Your Dublin Stay</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+
+  <!-- =========================================================
+       FOOTER — all contact details are placeholders
+       ========================================================= -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <p class="logo logo-footer"><span class="logo-main">Herbert Park</span><span class="logo-sub">Hotel &amp; Park Residence</span></p>
+        <p class="footer-campaign">Celebrate Every Goal. <em>&amp; Experience Dublin.</em></p>
+        <p class="footer-about">Herbert Park Hotel &amp; Park Residence offers hotel rooms and extended-stay accommodation in Ballsbridge, Dublin 4, within easy walking distance of Aviva Stadium.</p>
+      </div>
+
+      <div class="footer-col">
+        <h3>Visit</h3>
+        <address>
+          <a href="#location">Herbert Park Hotel &amp; Park Residence<br />
+          Ballsbridge<br />
+          Dublin 4<br />
+          Ireland</a>
+        </address>
+      </div>
+
+      <div class="footer-col">
+        <h3>Contact</h3>
+        <p>T: <a href="tel:+35316672200">+353 (1) 667 2200</a><br />F: +353 (1) 667 2595</p>
+        <p>E: <a href="mailto:reservations@herbertparkhotel.ie">reservations<wbr />@herbertparkhotel.ie</a><br />E: <a href="mailto:parkresidencesales@herbertparkhotel.ie">parkresidencesales<wbr />@herbertparkhotel.ie</a></p>
+        <ul class="footer-social" aria-label="Social channels">
+          <li><a href="https://www.instagram.com/herbertparkhotel/?hl=en" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+          <li><a href="https://www.facebook.com/HerbertParkHotel/" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+          <li><a href="https://www.linkedin.com/company/herbert-park-hotel/posts/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Explore</h3>
+        <ul>
+          <li><a href="#packages">EURO 2028 Packages</a></li>
+          <li><a href="#rooms">Rooms &amp; Suites</a></li>
+          <li><a href="#rooms">Park Residence</a></li>
+          <li><a href="#location">Aviva Stadium Location</a></li>
+          <li><a href="#dublin">Explore Dublin</a></li>
+          <li><a href="#" data-placeholder-link>Dining</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer-base">
+      <p>Campaign concept. Herbert Park Hotel &amp; Park Residence is not affiliated with or endorsed by UEFA. EURO 2028 is referenced descriptively only.</p>
+      <ul>
+        <li><a href="#" data-placeholder-link>Privacy</a></li>
+        <li><a href="#" data-placeholder-link>Terms</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- Optional scroll football — small campaign Easter egg (hidden on mobile & reduced motion) -->
+  <div class="scroll-ball" id="scrollBall" aria-hidden="true">
+    <svg viewBox="0 0 40 40">
+      <circle cx="20" cy="20" r="18.5" class="ball-body"/>
+      <path class="ball-patch" d="M20 13.5 L26.2 18 L23.8 25.3 L16.2 25.3 L13.8 18 Z"/>
+      <path class="ball-line" d="M20 13.5 V4.5 M26.2 18 L34.8 15.2 M23.8 25.3 L29 32.6 M16.2 25.3 L11 32.6 M13.8 18 L5.2 15.2"/>
+    </svg>
+  </div>
+
+  <script src="script.js"></script>
+
+  <!-- =========================================================
+       BOOKING STEP — "Choose your accommodation"
+       Opens from any Book Your Stay button (nav, package cards,
+       rooms section, final CTA). Room options are read from the
+       #rooms section at runtime, so names, images and official room
+       links stay in one place. CHECK AVAILABILITY opens the official
+       Herbert Park booking engine in a new tab; no booking or payment
+       happens on this page. The booking engine does not publish URL
+       parameters, so selections are shown here as a summary rather
+       than passed through.
+       ========================================================= -->
+  <dialog class="bk-dialog" id="bookingDialog" aria-labelledby="bk-title">
+    <form class="bk-form" id="bookingForm" method="dialog" novalidate>
+      <header class="bk-head">
+        <div>
+          <p class="bk-eyebrow">Book your EURO 2028 stay</p>
+          <h2 class="bk-title" id="bk-title">Choose your accommodation</h2>
+        </div>
+        <button type="button" class="bk-close" id="bkClose" aria-label="Close booking">×</button>
+      </header>
+
+      <div class="bk-body">
+        <!-- LEFT — booking details (first on mobile) -->
+        <div class="bk-col bk-col-details">
+          <fieldset class="bk-step">
+            <legend class="bk-step-title"><span class="bk-step-num">01</span> Accommodation type</legend>
+            <div class="bk-types">
+              <label class="bk-type bk-type-hotel">
+                <input type="radio" name="bkType" value="hotel" />
+                <span><strong>Hotel Rooms</strong><small>Herbert Park Hotel</small></span>
+              </label>
+              <label class="bk-type bk-type-residence">
+                <input type="radio" name="bkType" value="residence" />
+                <span><strong>Park Residence</strong><small>Studios &amp; apartments</small></span>
+              </label>
+            </div>
+          </fieldset>
+
+          <fieldset class="bk-step">
+            <legend class="bk-step-title"><span class="bk-step-num">03</span> Stay details</legend>
+            <div class="bk-fields">
+              <label class="bk-field"><span>Check-in</span><input type="date" id="bkIn" name="checkIn" /></label>
+              <label class="bk-field"><span>Check-out</span><input type="date" id="bkOut" name="checkOut" /></label>
+            </div>
+            <div class="bk-fields bk-fields-3">
+              <label class="bk-field"><span>Adults</span>
+                <select id="bkAdults" name="adults"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select>
+              </label>
+              <label class="bk-field"><span>Children</span>
+                <select id="bkChildren" name="children"><option selected>0</option><option>1</option><option>2</option><option>3</option><option>4</option></select>
+              </label>
+              <label class="bk-field"><span>Rooms</span>
+                <select id="bkRooms" name="rooms"><option selected>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
+              </label>
+            </div>
+            <p class="bk-nights" id="bkNights" aria-live="polite"></p>
+          </fieldset>
+
+          <fieldset class="bk-step">
+            <legend class="bk-step-title"><span class="bk-step-num">04</span> EURO 2028 package</legend>
+            <div class="bk-packages">
+              <label class="bk-pkg"><input type="radio" name="bkPackage" value="match-weekend" data-label="Match Weekend" data-min="3" /><span><small>3 Nights</small><strong>Match Weekend</strong></span></label>
+              <label class="bk-pkg"><input type="radio" name="bkPackage" value="dublin-experience" data-label="Dublin Experience" data-min="4" /><span><small>4–5 Nights</small><strong>Dublin Experience</strong></span></label>
+              <label class="bk-pkg"><input type="radio" name="bkPackage" value="ireland-explorer" data-label="Ireland Explorer" data-min="6" /><span><small>6+ Nights</small><strong>Ireland Explorer</strong></span></label>
+              <label class="bk-pkg"><input type="radio" name="bkPackage" value="full-euro-experience" data-label="Full EURO Experience" data-min="6" /><span><small>Multi-match / Extended</small><strong>Full EURO Experience</strong></span></label>
+              <label class="bk-pkg bk-pkg-later"><input type="radio" name="bkPackage" value="" data-label="" checked /><span><strong>Not sure yet — decide later</strong></span></label>
+            </div>
+          </fieldset>
+        </div>
+
+        <!-- RIGHT — visual room chooser (below details on mobile) -->
+        <div class="bk-col bk-col-rooms">
+          <fieldset class="bk-step">
+            <legend class="bk-step-title"><span class="bk-step-num">02</span> <span id="bkRoomsTitle">Your accommodation</span></legend>
+            <p class="bk-step-hint" id="bkRoomsHint" hidden></p>
+            <div class="bk-rooms-empty" id="bkRoomsEmpty">
+              <p>Start by choosing Hotel Rooms or Park Residence.</p>
+              <button type="button" class="bk-cat-btn bk-cat-hotel" data-bk-type="hotel"><span><strong>Hotel Rooms</strong><br /><small id="bkCountHotel"></small></span></button>
+              <button type="button" class="bk-cat-btn bk-cat-residence" data-bk-type="residence"><span><strong>Park Residence</strong><br /><small id="bkCountResidence"></small></span></button>
+            </div>
+            <ul class="bk-room-grid" id="bkRoomGrid" hidden></ul>
+            <button type="button" class="bk-switch" id="bkSwitch" hidden></button>
+          </fieldset>
+        </div>
+      </div>
+
+      <footer class="bk-foot">
+        <p class="bk-summary" id="bkSummary" aria-live="polite"></p>
+        <a class="btn btn-coral bk-cta" id="bkCheck" href="https://bookings.herbertparkhotel.ie/search-rates" target="_blank" rel="noopener">Check Availability<span class="visually-hidden"> (opens the Herbert Park booking system in a new tab)</span></a>
+      </footer>
+    </form>
+  </dialog>
+
+  <!-- =========================================================
+       BOOKING STEP + SCARF TEXT (inline, so this page works with
+       any version of script.js). Vanilla JS, no dependencies.
+       ========================================================= -->
+  <script>
+  (function () {
+    'use strict';
+
+    /* ---------- CHANGE 1: scarf shows the country name only ---------- */
+    var scarfText = document.getElementById('scarfText');
+    function fitScarf(text) {
+      if (!scarfText) return;
+      scarfText.textContent = text;
+      scarfText.removeAttribute('textLength');
+      scarfText.removeAttribute('lengthAdjust');
+      try {
+        if (scarfText.getComputedTextLength() > 336) {
+          scarfText.setAttribute('textLength', 336);
+          scarfText.setAttribute('lengthAdjust', 'spacingAndGlyphs');
+        }
+      } catch (e) { /* not rendered yet */ }
+    }
+    function syncScarf() {
+      var chip = document.querySelector('#teamScroller .team-chip[aria-checked="true"]');
+      if (!chip) return;
+      var name = chip.getAttribute('data-country') || chip.textContent.trim();
+      fitScarf(name.toUpperCase());
+    }
+    var scroller = document.getElementById('teamScroller');
+    if (scroller) {
+      // runs after script.js's own handlers (click + arrow keys), then corrects the text
+      scroller.addEventListener('click', function () { setTimeout(syncScarf, 0); });
+      scroller.addEventListener('keydown', function () { setTimeout(syncScarf, 0); });
+    }
+    syncScarf();
+
+    /* ---------- Package kit names → #supporter-kit (fallback if script.js predates the linking) ---------- */
+    (function () {
+      var row = document.getElementById('packageRow');
+      if (!row || row.querySelector('.package-kit-link')) return;
+      var names = ['Herbert Park Supporter Kit', 'Enhanced Supporter Kit', 'Premium Supporter Kit'];
+      row.querySelectorAll('.package-list li').forEach(function (li) {
+        var walker = document.createTreeWalker(li, NodeFilter.SHOW_TEXT);
+        var nodes = []; while (walker.nextNode()) nodes.push(walker.currentNode);
+        nodes.forEach(function (node) {
+          names.forEach(function (name) {
+            if (!node.parentNode || node.nodeValue.indexOf(name) === -1) return;
+            var i = node.nodeValue.indexOf(name);
+            var after = node.splitText(i); after.splitText(name.length);
+            var a = document.createElement('a');
+            a.className = 'package-kit-link'; a.href = '#supporter-kit'; a.textContent = name;
+            after.parentNode.replaceChild(a, after);
+          });
+        });
+      });
+    })();
+
+    /* ---------- CHANGE 2 & 3: booking step ---------- */
+    var dialog = document.getElementById('bookingDialog');
+    if (!dialog || typeof dialog.showModal !== 'function') return; // old browsers: links work as normal
+
+    var form = document.getElementById('bookingForm');
+    var grid = document.getElementById('bkRoomGrid');
+    var empty = document.getElementById('bkRoomsEmpty');
+    var roomsTitle = document.getElementById('bkRoomsTitle');
+    var hint = document.getElementById('bkRoomsHint');
+    var switchBtn = document.getElementById('bkSwitch');
+    var summary = document.getElementById('bkSummary');
+    var nightsEl = document.getElementById('bkNights');
+    var inEl = document.getElementById('bkIn');
+    var outEl = document.getElementById('bkOut');
+    var adultsEl = document.getElementById('bkAdults');
+    var childrenEl = document.getElementById('bkChildren');
+    var roomsEl = document.getElementById('bkRooms');
+    var lastTrigger = null;
+
+    var TYPE_LABEL = { hotel: 'Hotel Rooms', residence: 'Park Residence' };
+    var PACKAGE_ORDER = ['match-weekend', 'dublin-experience', 'ireland-explorer', 'full-euro-experience'];
+    var FAMILY_FRIENDLY = ['Family Rooms', 'Park View Studio with Sofa Bed']; // room types with space for extra guests
+
+    // Room data comes from the "Find Your EURO 2028 Stay" section — one source of truth
+    function readRooms() {
+      var rooms = [];
+      document.querySelectorAll('#rooms .rooms-panel').forEach(function (panel) {
+        var type = panel.classList.contains('rooms-panel-residence') ? 'residence' : 'hotel';
+        panel.querySelectorAll('.room-tile').forEach(function (a) {
+          var img = a.querySelector('img');
+          var nameEl = a.querySelector('.room-tile-name');
+          rooms.push({
+            type: type,
+            name: nameEl ? nameEl.textContent.trim() : '',
+            url: a.getAttribute('href'),
+            img: img ? img.getAttribute('src') : '',
+            alt: img ? img.getAttribute('alt') : ''
+          });
+        });
+      });
+      return rooms;
+    }
+    var ROOMS = readRooms();
+    var counts = { hotel: 0, residence: 0 };
+    ROOMS.forEach(function (r) { counts[r.type]++; });
+    document.getElementById('bkCountHotel').textContent = counts.hotel + ' room types';
+    document.getElementById('bkCountResidence').textContent = counts.residence + ' studios & apartments';
+
+    var state = { type: '', room: '' };
+    try {
+      var saved = JSON.parse(sessionStorage.getItem('hpRoomChoice') || 'null');
+      if (saved && saved.type) state = saved;
+    } catch (e) { /* storage unavailable */ }
+
+    function remember() {
+      try { sessionStorage.setItem('hpRoomChoice', JSON.stringify(state)); } catch (e) { /* ignore */ }
+    }
+
+    function esc(s) {
+      return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; });
+    }
+
+    function renderRooms() {
+      var typeRadios = form.querySelectorAll('input[name="bkType"]');
+      typeRadios.forEach(function (r) { r.checked = r.value === state.type; });
+
+      if (!state.type) {
+        empty.hidden = false; grid.hidden = true; switchBtn.hidden = true; hint.hidden = true;
+        roomsTitle.textContent = 'Your accommodation';
+        return;
+      }
+      empty.hidden = true; grid.hidden = false; switchBtn.hidden = false;
+      roomsTitle.textContent = TYPE_LABEL[state.type];
+      switchBtn.textContent = 'See ' + TYPE_LABEL[state.type === 'hotel' ? 'residence' : 'hotel'] + ' instead';
+      grid.setAttribute('data-type', state.type);
+
+      var kids = Number(childrenEl.value) > 0;
+      hint.hidden = !kids;
+      if (kids) hint.textContent = 'Travelling with children? Options with extra space are marked.';
+
+      grid.innerHTML = ROOMS.filter(function (r) { return r.type === state.type; }).map(function (r, i) {
+        var id = 'bkRoom' + state.type + i;
+        var family = kids && FAMILY_FRIENDLY.indexOf(r.name) !== -1;
+        return '<li>' +
+          '<label class="bk-room" for="' + id + '">' +
+            '<input type="radio" name="bkRoom" id="' + id + '" value="' + esc(r.name) + '"' + (r.name === state.room ? ' checked' : '') + ' />' +
+            '<span class="bk-room-img"><img src="' + esc(r.img) + '" alt="' + esc(r.alt) + '" loading="lazy" /></span>' +
+            (family ? '<span class="bk-room-tag">Extra space</span>' : '') +
+            '<span class="bk-room-name">' + esc(r.name) + '</span>' +
+          '</label>' +
+          '<a class="bk-room-link" href="' + esc(r.url) + '" target="_blank" rel="noopener">View room<span class="visually-hidden"> ' + esc(r.name) + ' (opens in a new tab)</span></a>' +
+        '</li>';
+      }).join('');
+    }
+
+    function fmt(d) {
+      return d ? new Date(d + 'T12:00:00').toLocaleDateString('en-IE', { day: 'numeric', month: 'short', year: 'numeric' }) : '';
+    }
+    function nights() {
+      if (!inEl.value || !outEl.value) return 0;
+      return Math.round((new Date(outEl.value) - new Date(inEl.value)) / 86400000);
+    }
+    function selectedPackage() { return form.querySelector('input[name="bkPackage"]:checked'); }
+
+    function update() {
+      // dates: check-out must be after check-in
+      if (inEl.value) {
+        var min = new Date(inEl.value + 'T12:00:00'); min.setDate(min.getDate() + 1);
+        outEl.min = min.toISOString().slice(0, 10);
+        if (outEl.value && outEl.value <= inEl.value) outEl.value = '';
+      }
+      var n = nights();
+      var pkg = selectedPackage();
+      var pkgMin = pkg && pkg.value ? Number(pkg.getAttribute('data-min')) : 0;
+      if (n > 0) {
+        nightsEl.innerHTML = '<strong>' + n + (n === 1 ? ' night' : ' nights') + '</strong>' +
+          (pkgMin && n < pkgMin ? ' · ' + esc(pkg.getAttribute('data-label')) + ' is designed for ' + pkgMin + '+ nights' : '');
+      } else { nightsEl.textContent = ''; }
+
+      var parts = [];
+      parts.push(state.type ? '<strong>' + TYPE_LABEL[state.type] + (state.room ? ' · ' + esc(state.room) : '') + '</strong>' : 'Accommodation not chosen yet');
+      if (inEl.value && outEl.value) parts.push(fmt(inEl.value) + ' – ' + fmt(outEl.value));
+      parts.push(adultsEl.value + (adultsEl.value === '1' ? ' adult' : ' adults') +
+        (childrenEl.value !== '0' ? ', ' + childrenEl.value + (childrenEl.value === '1' ? ' child' : ' children') : '') +
+        ' · ' + roomsEl.value + (roomsEl.value === '1' ? ' room' : ' rooms'));
+      if (pkg && pkg.value) parts.push('EURO 2028 ' + esc(pkg.getAttribute('data-label')));
+      summary.innerHTML = parts.join(' · ') +
+        '<span class="bk-note">The Herbert Park booking system opens in a new tab: enter these details there to see live availability and rates. No booking is made on this page.</span>';
+    }
+
+    function open(pkgSlug, trigger) {
+      lastTrigger = trigger || document.activeElement;
+      var radios = form.querySelectorAll('input[name="bkPackage"]');
+      if (pkgSlug !== undefined) {
+        radios.forEach(function (r) { r.checked = r.value === (pkgSlug || ''); });
+      }
+      var today = new Date().toISOString().slice(0, 10);
+      inEl.min = today;
+      renderRooms();
+      update();
+      dialog.showModal();
+      document.documentElement.style.overflow = 'hidden';
+      var first = form.querySelector('input[name="bkType"]:checked') || form.querySelector('input[name="bkType"]');
+      if (first) first.focus();
+    }
+    function close() { if (dialog.open) dialog.close(); }
+
+    dialog.addEventListener('close', function () {
+      document.documentElement.style.overflow = '';
+      if (lastTrigger && typeof lastTrigger.focus === 'function') lastTrigger.focus();
+    });
+    document.getElementById('bkClose').addEventListener('click', close);
+    dialog.addEventListener('click', function (e) { if (e.target === dialog) close(); }); // click on backdrop
+
+    form.addEventListener('change', function (e) {
+      var t = e.target;
+      if (t.name === 'bkType') { state.type = t.value; state.room = ''; renderRooms(); }
+      if (t.name === 'bkRoom') { state.room = t.value; }
+      if (t === childrenEl) { renderRooms(); }
+      remember();
+      update();
+    });
+    form.addEventListener('submit', function (e) { e.preventDefault(); });
+    empty.addEventListener('click', function (e) {
+      var b = e.target.closest('[data-bk-type]');
+      if (!b) return;
+      state.type = b.getAttribute('data-bk-type'); state.room = '';
+      renderRooms(); remember(); update();
+      var firstRoom = grid.querySelector('input'); if (firstRoom) firstRoom.focus();
+    });
+    switchBtn.addEventListener('click', function () {
+      state.type = state.type === 'hotel' ? 'residence' : 'hotel'; state.room = '';
+      renderRooms(); remember(); update();
+    });
+
+    // Remember a room the guest viewed in the rooms section
+    document.querySelectorAll('#rooms .room-tile').forEach(function (a) {
+      a.addEventListener('click', function () {
+        var panel = a.closest('.rooms-panel');
+        state.type = panel && panel.classList.contains('rooms-panel-residence') ? 'residence' : 'hotel';
+        var n = a.querySelector('.room-tile-name');
+        state.room = n ? n.textContent.trim() : '';
+        remember();
+      });
+    });
+
+    // Open the booking step from every "Book Your Stay" entry point
+    document.addEventListener('click', function (e) {
+      var pkgLink = e.target.closest('#packageRow .package .link-arrow');
+      if (pkgLink) {
+        e.preventDefault();
+        var slug = pkgLink.getAttribute('data-package');
+        if (!slug) {
+          var cards = Array.prototype.slice.call(document.querySelectorAll('#packageRow .package'));
+          slug = PACKAGE_ORDER[cards.indexOf(pkgLink.closest('.package'))] || '';
+        }
+        open(slug, pkgLink);
+        return;
+      }
+      var opener = e.target.closest('[data-open-booking]');
+      if (opener) {
+        e.preventDefault();
+        open(undefined, opener); // no package preselected: guest chooses in step 04
+      }
+    }, true);
+  })();
+  </script>
+</body>
+</html>
